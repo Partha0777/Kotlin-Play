@@ -3,6 +3,7 @@ package com.curiozing.kotlinplay
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -14,6 +15,7 @@ import com.curiozing.kotlinplay.ui.theme.KotlinPlayTheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        var viewModel = MainViewModel()
         super.onCreate(savedInstanceState)
         setContent {
             KotlinPlayTheme {
@@ -22,6 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    viewModel.getDrinks()
                     Greeting("Android")
                 }
             }
