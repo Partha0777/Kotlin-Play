@@ -4,7 +4,10 @@ import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
+import okhttp3.ResponseBody
 
 class MainViewModel : ViewModel() {
 
@@ -16,6 +19,45 @@ class MainViewModel : ViewModel() {
             Log.d("Response1 ", response1.string())
 
         }
+    }
+
+    fun getColdDrinks() {
+        viewModelScope.launch {
+            lateinit var response:ResponseBody
+            val job =  launch {
+                response = NetworkHelper.drinksService.getHotCoffee()
+                Log.d("Response First ", response.string())
+            }
+            Log.d("Response Joined", "Before Joined")
+            job.join()
+            Log.d("Response Joined", "After Joined")
+
+            var cun1 = async {
+                NetworkHelper.drinksService.getHotCoffee1()
+            }
+            var cun2 = async {
+                NetworkHelper.drinksService.getHotCoffee1()
+            }
+
+            awaitAll(cun1,cun2)
+            Log.d("Response Final Joined", awaitAll(cun1,cun2).toString())
+        }
+
+    }
+
+
+    fun getColdDrinks1() {
+        viewModelScope.launch {
+
+            val data = NetworkHelper.drinksService.getHotCoffee1().await()
+            Log.d("Response Final Joined1", data.toString())
+
+            val data1 = NetworkHelper.drinksService.getHotCoffee1().await()
+            Log.d("Response Final Joined2", data1.toString())
+
+            Log.d("Response Joined","")
+        }
+
     }
 
 }

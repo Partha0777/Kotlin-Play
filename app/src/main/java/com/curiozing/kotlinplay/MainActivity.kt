@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    viewModel.getDrinks()
+                    viewModel.getColdDrinks1()
                     Greeting("Android")
                 }
             }
