@@ -8,3 +8,26 @@ sealed class NetworkStatus {
     data object Loading: NetworkStatus()
 
 }
+
+
+interface DummyData{
+
+}
+
+class  Imple1 : DummyData {
+
+}
+
+class  Imple2 : DummyData {
+
+}
+
+class Base{
+
+    fun getting(io:DummyData){
+      when(io){
+          is Imple1 -> {}
+      }
+    }
+
+}
