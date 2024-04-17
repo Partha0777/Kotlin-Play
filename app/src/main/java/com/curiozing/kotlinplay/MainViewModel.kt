@@ -21,6 +21,30 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    suspend fun loadDrinks(){
+        NetworkHelper.drinksService.getHotCoffee()
+    }
+
+    //RetryExample
+    fun retryDrinks(){
+        viewModelScope.launch{
+            retry(2){
+                loadDrinks()
+            }
+        }
+    }
+
+   private suspend fun <T> retry(count:Int, block: suspend () -> T): T{
+        repeat(count){
+            try {
+                return block()
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
+        }
+        return block()
+    }
+
     fun getColdDrinks() {
         viewModelScope.launch {
             lateinit var response:ResponseBody
@@ -59,5 +83,6 @@ class MainViewModel : ViewModel() {
         }
 
     }
+
 
 }
