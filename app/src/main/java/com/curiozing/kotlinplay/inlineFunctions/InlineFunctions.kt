@@ -7,6 +7,13 @@ fun main() {
     executeInline {
         centerData()
     }
+
+    val list = listOf(2,3,5,7)
+    val result = applyToList(list = list){
+        it * 8
+    }
+
+    println(result.toString())
 }
 
 fun centerData(){
@@ -16,7 +23,11 @@ fun centerData(){
 inline fun executeInline(block: () -> Unit){
     print("Hello,")
     block()
-    print("Welcome!!")
+    println("Welcome!!")
+}
+
+fun <T,R> applyToList(list: List<T>, func: (T) -> R):List<R>{
+    return list.map { element -> func(element) }
 }
 
 
