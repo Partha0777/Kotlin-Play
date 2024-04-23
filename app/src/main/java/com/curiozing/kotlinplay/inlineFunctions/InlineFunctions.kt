@@ -8,34 +8,34 @@ fun main() {
         centerData()
     }
 
-    val list = listOf(2,3,5,7)
-    val result = applyToList(list = list){
+    val list = listOf(2, 3, 5, 7)
+    val result = applyToList(list = list) {
         it * 2
     }
 
     println(result.toString())
 
-    applyUnit("woo"){
+    applyUnit("woo") {
         print("No End!")
     }
 }
 
 
-fun centerData(){
+fun centerData() {
     println("I'm Partha")
 }
 
-inline fun executeInline(block: () -> Unit){
+inline fun executeInline(block: () -> Unit) {
     print("Hello,")
     block()
     println("Welcome!!")
 }
 
-fun <T,R> applyToList(list: List<T>, func: (T) -> R):List<R>{
+fun <T, R> applyToList(list: List<T>, func: (T) -> R): List<R> {
     return list.map { element -> func(element) }
 }
 
-fun <T> applyUnit(data: T, block: () -> Unit){
+fun <T> applyUnit(data: T, block: () -> Unit) {
     println(data)
     block()
 

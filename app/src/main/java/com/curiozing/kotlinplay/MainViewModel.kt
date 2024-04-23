@@ -12,7 +12,7 @@ import okhttp3.ResponseBody
 
 class MainViewModel : ViewModel() {
 
-    fun getDrinks(){
+    fun getDrinks() {
         viewModelScope.launch {
             val response1 = NetworkHelper.drinksService.getHotCoffee1().await()
             val response = NetworkHelper.drinksService.getHotCoffee()
@@ -22,25 +22,25 @@ class MainViewModel : ViewModel() {
         }
     }
 
-    suspend fun loadDrinks(){
+    suspend fun loadDrinks() {
         NetworkHelper.drinksService.getHotCoffee()
     }
 
     //RetryExample
-    fun retryDrinks(){
-        viewModelScope.launch{
-            retry(2){
+    fun retryDrinks() {
+        viewModelScope.launch {
+            retry(2) {
                 loadDrinks()
             }
         }
     }
 
-   private suspend fun <T> retry(count:Int, block: suspend () -> T): T{
+    private suspend fun <T> retry(count: Int, block: suspend () -> T): T {
 
-        repeat(count){
+        repeat(count) {
             try {
                 return block()
-            }catch (e:Exception){
+            } catch (e: Exception) {
                 e.printStackTrace()
             }
         }
@@ -49,8 +49,8 @@ class MainViewModel : ViewModel() {
 
     fun getColdDrinks() {
         viewModelScope.launch {
-            lateinit var response:ResponseBody
-            val job =  launch {
+            lateinit var response: ResponseBody
+            val job = launch {
                 response = NetworkHelper.drinksService.getHotCoffee()
                 Log.d("Response First ", response.string())
             }
@@ -65,8 +65,8 @@ class MainViewModel : ViewModel() {
                 NetworkHelper.drinksService.getHotCoffee1()
             }
 
-            awaitAll(cun1,cun2)
-            Log.d("Response Final Joined", awaitAll(cun1,cun2).toString())
+            awaitAll(cun1, cun2)
+            Log.d("Response Final Joined", awaitAll(cun1, cun2).toString())
         }
 
     }
@@ -81,7 +81,7 @@ class MainViewModel : ViewModel() {
             val data1 = NetworkHelper.drinksService.getHotCoffee1().await()
             Log.d("Response Final Joined2", data1.toString())
 
-            Log.d("Response Joined","")
+            Log.d("Response Joined", "")
         }
 
     }
