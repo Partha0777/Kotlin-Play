@@ -34,7 +34,7 @@ class MainActivity : ComponentActivity() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Button(onClick = {
-                            viewModel.retryDrinks()
+                            viewModel.getAsyncColdDrinks()
                         }) {
                             Text(text = "Call API <>")
                         }

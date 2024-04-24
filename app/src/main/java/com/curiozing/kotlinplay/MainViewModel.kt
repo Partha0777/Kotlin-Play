@@ -5,19 +5,23 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withTimeout
 import okhttp3.ResponseBody
+import java.time.Duration
 
 class MainViewModel : ViewModel() {
 
     fun getDrinks() {
         viewModelScope.launch {
             val response1 = NetworkHelper.drinksService.getHotCoffee1().await()
+            Log.d("Response ", "Called 1")
             val response = NetworkHelper.drinksService.getHotCoffee()
-            Log.d("Response ", response.string())
+            Log.d("Response ", "Called 2")
             Log.d("Response1 ", response1.string())
+            Log.d("Response ", response.string())
 
         }
     }
@@ -47,7 +51,7 @@ class MainViewModel : ViewModel() {
         return block()
     }
 
-    fun getColdDrinks() {
+    fun getAsyncColdDrinks() {
         viewModelScope.launch {
             lateinit var response: ResponseBody
             val job = launch {
@@ -55,6 +59,7 @@ class MainViewModel : ViewModel() {
                 Log.d("Response First ", response.string())
             }
             Log.d("Response Joined", "Before Joined")
+            delay(2000)
             job.join()
             Log.d("Response Joined", "After Joined")
 

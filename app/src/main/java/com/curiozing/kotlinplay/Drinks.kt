@@ -12,7 +12,7 @@ interface Drinks {
     @GET("/coffee/hot")
     suspend fun getHotCoffee(): ResponseBody
 
-    @GET("/coffee/hotrere")
+    @GET("/coffee/hot")
     fun getHotCoffee1(): Deferred<ResponseBody>
 
 }
