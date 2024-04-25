@@ -22,6 +22,7 @@ import androidx.lifecycle.LifecycleOwner
 import com.curiozing.kotlinplay.ui.theme.KotlinPlayTheme
 
 class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         var viewModel = MainViewModel()
         super.onCreate(savedInstanceState)
@@ -50,8 +51,8 @@ class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
     }
 }
 
-interface Analytics{
-    fun registerLifeCycleOwner(owner: LifecycleOwner){}
+interface Analytics {
+    fun registerLifeCycleOwner(owner: LifecycleOwner) {}
 }
 
 
@@ -62,9 +63,9 @@ class AnalyticsImpl : Analytics, LifecycleEventObserver {
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
 
-        when(event){
-            Lifecycle.Event.ON_RESUME  -> {}
-            Lifecycle.Event.ON_PAUSE  -> {}
+        when (event) {
+            Lifecycle.Event.ON_RESUME -> {}
+            Lifecycle.Event.ON_PAUSE -> {}
             else -> Unit
         }
     }
