@@ -15,12 +15,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleEventObserver
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import com.curiozing.kotlinplay.ui.theme.KotlinPlayTheme
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
     override fun onCreate(savedInstanceState: Bundle?) {
         var viewModel = MainViewModel()
         super.onCreate(savedInstanceState)
+        registerLifeCycleOwner(this)
         setContent {
             KotlinPlayTheme {
                 // A surface container using the 'background' color from the theme
@@ -44,6 +49,29 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+interface Analytics{
+    fun registerLifeCycleOwner(owner: LifecycleOwner){}
+}
+
+
+class AnalyticsImpl : Analytics, LifecycleEventObserver {
+    override fun registerLifeCycleOwner(owner: LifecycleOwner) {
+        owner.lifecycle.addObserver(this)
+    }
+
+    override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
+
+        when(event){
+            Lifecycle.Event.ON_RESUME  -> {}
+            Lifecycle.Event.ON_PAUSE  -> {}
+            else -> Unit
+        }
+    }
+
+
+}
+
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
