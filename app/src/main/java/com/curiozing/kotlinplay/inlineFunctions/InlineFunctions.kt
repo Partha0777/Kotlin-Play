@@ -3,7 +3,7 @@ package com.curiozing.kotlinplay.inlineFunctions
 class InlineFunctions
 
 fun main() {
-  /*  executeInline {
+    executeInline {
         centerData()
     }
 
@@ -16,10 +16,10 @@ fun main() {
 
     applyUnit("woo") {
         print("No End!")
-    }*/
+    }
 
-    val list = listOf(1,2,3,4,5,6)
-    filterList(list = list){
+    val numbers = listOf(1, 2, 3, 4, 5, 6)
+    filterList(list = numbers) {
         it % 2 == 0
     }
 
@@ -46,10 +46,10 @@ fun <T> applyUnit(data: T, block: () -> Unit) {
 
 }
 
-inline fun filterList(list: List<Int>, filter : (Int) -> Boolean){
+inline fun filterList(list: List<Int>, filter: (Int) -> Boolean) {
     val filterList = mutableListOf<Int>()
-    for (item in list){
-        if(filter(item)){
+    for (item in list) {
+        if (filter(item)) {
             filterList.add(item)
         }
     }
