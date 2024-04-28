@@ -56,6 +56,8 @@ class Base {
                     is NetworkStatus.Loading -> {
 
                     }
+
+                    else -> {}
                 }
                 )
     }
