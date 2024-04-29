@@ -1,13 +1,14 @@
-package com.curiozing.kotlinplay.kotlinVsJava;
+package com.curiozing.kotlinplay.kotlinVsJava.conciseness;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ConcisenessInJava {
     public static void main(String[] args) {
-       listMethod();
+        listMethod();
     }
-   static void listMethod(){
+
+    static void listMethod() {
         List<Integer> data = new ArrayList<>();
         data.add(1);
         data.add(2);
@@ -16,12 +17,12 @@ public class ConcisenessInJava {
         data.add(5);
 
         List<Integer> evenNumbers = new ArrayList<>();
-        for (int i = 0; i< data.size();i++){
-            if (data.get(i) % 2 == 0){
+        for (int i = 0; i < data.size(); i++) {
+            if (data.get(i) % 2 == 0) {
                 evenNumbers.add(data.get(i));
             }
         }
-        System.out.println("Data even "+ evenNumbers);
+        System.out.println("Data even " + evenNumbers);
     }
 }
 

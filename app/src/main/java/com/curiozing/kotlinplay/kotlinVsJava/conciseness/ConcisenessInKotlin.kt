@@ -1,11 +1,11 @@
-package com.curiozing.kotlinplay.kotlinVsJava
+package com.curiozing.kotlinplay.kotlinVsJava.conciseness
 
 
 fun main(){
-    val conciseness = ConcisenessInKoltin()
+    val conciseness = ConcisenessInKotlin()
     conciseness.loadList()
 }
-class ConcisenessInKoltin {
+class ConcisenessInKotlin {
 
     fun loadList(){
         val data = listOf(1,2,3,4,5)
