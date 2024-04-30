@@ -40,7 +40,7 @@ class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Button(onClick = {
-                            viewModel.getAsyncColdDrinks()
+                            viewModel.getDrinks()
                         }) {
                             Text(text = "Call API <>")
                         }

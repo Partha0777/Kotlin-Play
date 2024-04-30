@@ -16,11 +16,14 @@ class MainViewModel : ViewModel() {
 
     fun getDrinks() {
         viewModelScope.launch {
-            val response1 = NetworkHelper.drinksService.getHotCoffee1().await()
+            launch {
+                val response1 = NetworkHelper.drinksService.getHotCoffee()
+                Log.d("Response1 ", response1.string())
+            }
+
             Log.d("Response ", "Called 1")
             val response = NetworkHelper.drinksService.getHotCoffee()
             Log.d("Response ", "Called 2")
-            Log.d("Response1 ", response1.string())
             Log.d("Response ", response.string())
 
         }
