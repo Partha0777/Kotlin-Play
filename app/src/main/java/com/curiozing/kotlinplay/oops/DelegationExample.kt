@@ -7,13 +7,13 @@ fun main() {
     MusicPlayer(headPhone).play()
 }
 
-interface Music{
+interface Music {
     fun play()
 
     fun pause()
 }
 
-class HeadPhone : Music{
+class HeadPhone : Music {
     override fun play() {
         TODO("Not yet implemented")
     }
@@ -22,13 +22,13 @@ class HeadPhone : Music{
         TODO("Not yet implemented")
     }
 
-    fun pauseByButton(){
+    fun pauseByButton() {
 
     }
 
 }
 
-class Speaker : Music{
+class Speaker : Music {
     override fun play() {
         TODO("Not yet implemented")
     }
@@ -39,4 +39,4 @@ class Speaker : Music{
 
 }
 
-class MusicPlayer(music: Music): Music by music
+class MusicPlayer(music: Music) : Music by music

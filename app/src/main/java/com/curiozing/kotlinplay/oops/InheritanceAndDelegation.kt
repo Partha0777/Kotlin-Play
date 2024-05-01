@@ -2,14 +2,15 @@ package com.curiozing.kotlinplay.oops
 
 
 fun main() {
-   println(Robin().fly())
+    println(Robin().fly())
 }
 
-open class Animal(){
-    open fun makeSound(){
+open class Animal() {
+    open fun makeSound() {
 
     }
-    open fun run(){}
+
+    open fun run() {}
 }
 
 class Lion() : Animal() {
@@ -22,11 +23,11 @@ class Lion() : Animal() {
     }
 }
 
-interface Birds{
-    fun  fly()
+interface Birds {
+    fun fly()
 }
 
-class Parrot : Birds{
+class Parrot : Birds {
     override fun fly() {
         println("it's flying dude!")
     }
