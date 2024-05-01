@@ -3,7 +3,7 @@ package com.curiozing.kotlinplay.oops.abstraction
 abstract class Abstraction {
 }
 
-interface abstInterface{
+interface abstInterface {
 
     fun imp1()
 
