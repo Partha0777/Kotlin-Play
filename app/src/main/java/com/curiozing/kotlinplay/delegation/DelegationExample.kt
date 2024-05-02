@@ -1,4 +1,4 @@
-package com.curiozing.kotlinplay.oops
+package com.curiozing.kotlinplay.delegation
 
 fun main() {
 
