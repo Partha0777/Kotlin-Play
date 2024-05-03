@@ -58,6 +58,7 @@ interface Analytics {
 
 class AnalyticsImpl : Analytics, LifecycleEventObserver {
     override fun registerLifeCycleOwner(owner: LifecycleOwner) {
+
         owner.lifecycle.addObserver(this)
     }
 
