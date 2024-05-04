@@ -54,11 +54,14 @@ class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
                             Text(text = "Call Android API")
                         }
                         Spacer(modifier = Modifier.height(50.dp))
+                        Text(text = "")
+                        Spacer(modifier = Modifier.height(50.dp))
                         Button(onClick = {
                             viewModel.getDrinks()
                         }) {
                             Text(text = "Call API <>")
                         }
+
 
                     }
                 }

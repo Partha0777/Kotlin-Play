@@ -8,12 +8,11 @@ import kotlinx.coroutines.launch
 
 class AndroidVersionViewModel : ViewModel() {
 
-    fun getAndroidVersions(){
+    fun getAndroidVersions() {
         val db = (MyApplication.getContext() as MyApplication).getAppDatabase()
         viewModelScope.launch {
             val data = ApiHelper.retrofitClient.getAndroidVersion()
             db.versionDAO().insertAllVersion(data)
-           Log.d("response -->", data.toString())
         }
 
     }
