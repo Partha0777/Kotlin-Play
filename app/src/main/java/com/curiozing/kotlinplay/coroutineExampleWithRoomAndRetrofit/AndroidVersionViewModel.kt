@@ -17,7 +17,11 @@ class AndroidVersionViewModel : ViewModel() {
     fun getAndroidVersions() {
         val db = (MyApplication.getContext() as MyApplication).getAppDatabase()
         viewModelScope.launch {
-            val data = ApiHelper.retrofitClient.getAndroidVersion()
+           var data = db.versionDAO().getVersions()
+            if (data.isNotEmpty()){
+                uiState.value = UiState.Success(data)
+            }
+            data = ApiHelper.retrofitClient.getAndroidVersion()
             db.versionDAO().insertAllVersion(data)
             uiState.value = UiState.Success(data)
         }

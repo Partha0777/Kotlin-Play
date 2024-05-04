@@ -16,7 +16,7 @@ interface VersionDAO {
     suspend fun insertAllVersion(versions: List<Version>)
 
     @Query("SELECT * FROM androidVersion")
-    fun getVersions(): List<Version>
+    suspend fun getVersions(): List<Version>
 
 
 
