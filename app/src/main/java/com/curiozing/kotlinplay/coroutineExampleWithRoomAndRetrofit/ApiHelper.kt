@@ -9,12 +9,12 @@ import retrofit2.create
 
 object ApiHelper {
 
-    var retrofit = Retrofit.Builder().client(OkHttpClient())
-        .baseUrl("https://kotlin-play-default-rtdb.firebaseio.com/")
+    private fun client () : Retrofit = Retrofit.Builder().client(OkHttpClient())
+        .baseUrl("https://kotlin-play-default-rtdb.firebaseio.com")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory()).build()
 
 
-    var retrofitClient = retrofit.create(ApiService::class.java)
+    var retrofitClient: ApiService = client().create(ApiService::class.java)
 
 }

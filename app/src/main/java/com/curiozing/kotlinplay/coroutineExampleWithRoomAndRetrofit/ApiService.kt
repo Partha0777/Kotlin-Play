@@ -6,6 +6,6 @@ import retrofit2.http.GET
 interface ApiService {
 
     @GET("/android.json")
-    suspend fun getAndroidVersion(): ResponseBody
+    suspend fun getAndroidVersion(): List<Version>
 
 }

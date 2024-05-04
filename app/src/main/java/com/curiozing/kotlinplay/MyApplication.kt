@@ -22,4 +22,8 @@ class MyApplication : Application() {
         super.onCreate()
         db = Room.databaseBuilder(this.applicationContext,AppDatabase::class.java,"androidVersionDB").build()
     }
+
+    fun getAppDatabase(): AppDatabase{
+        return db
+    }
 }
