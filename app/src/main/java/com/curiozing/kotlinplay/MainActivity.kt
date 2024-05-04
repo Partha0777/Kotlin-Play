@@ -24,6 +24,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 import com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit.AndroidVersionViewModel
+import com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit.UiState
 import com.curiozing.kotlinplay.ui.theme.KotlinPlayTheme
 
 class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
@@ -48,19 +49,36 @@ class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
 
-                        Button(onClick = {
-                            androidViewModel.getAndroidVersions()
-                        }) {
-                            Text(text = "Call Android API")
+                        androidViewModel.getUiState.let {
+                            when(it.value){
+                                is UiState.Loading -> {
+                                    Button(onClick = {
+                                        androidViewModel.getAndroidVersions()
+                                    }) {
+                                        Text(text = "Call Android API")
+                                    }
+                                    Spacer(modifier = Modifier.height(50.dp))
+                                    Text(text = "")
+                                    Spacer(modifier = Modifier.height(50.dp))
+                                    Button(onClick = {
+                                        viewModel.getDrinks()
+                                    }) {
+                                        Text(text = "Call API <>")
+                                    }
+                                }
+
+                                is UiState.Success ->{
+                                    Text(text = (it.value as UiState.Success).response.toString())
+                                }
+
+                                else -> {
+
+                                }
+                            }
+
                         }
-                        Spacer(modifier = Modifier.height(50.dp))
-                        Text(text = "")
-                        Spacer(modifier = Modifier.height(50.dp))
-                        Button(onClick = {
-                            viewModel.getDrinks()
-                        }) {
-                            Text(text = "Call API <>")
-                        }
+
+
 
 
                     }
