@@ -36,6 +36,7 @@ class AndroidVersionViewModel : ViewModel() {
                 localData.isNotEmpty() -> {
                     db.versionDAO().updateAllVersions(remoteData)
                 }
+
                 else -> {
                     db.versionDAO().insertAllVersion(remoteData)
                 }
