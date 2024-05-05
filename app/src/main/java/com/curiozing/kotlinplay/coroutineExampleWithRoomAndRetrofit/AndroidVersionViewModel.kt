@@ -22,17 +22,15 @@ class AndroidVersionViewModel : ViewModel() {
                 }
             }
 
-
-
             val remoteData = ApiHelper.retrofitClient.getAndroidVersion()
 
-          remoteData.forEachIndexed{ index, version ->
-              if (localData.getOrNull(index) == null){
-                  db.versionDAO().insertVersion(version)
-              }else{
-                  remoteData[index].id = localData[index].id
-              }
-          }
+            remoteData.forEachIndexed { index, version ->
+                if (localData.getOrNull(index) == null) {
+                    db.versionDAO().insertVersion(version)
+                } else {
+                    remoteData[index].id = localData[index].id
+                }
+            }
 
             when {
                 localData.isNotEmpty() -> {
