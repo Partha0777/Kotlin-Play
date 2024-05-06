@@ -5,6 +5,6 @@ import androidx.room.RoomDatabase
 
 
 @Database(entities = [Version::class], version = 1)
-abstract class AppDatabase: RoomDatabase() {
-    abstract fun versionDAO() : VersionDAO
+abstract class AppDatabase : RoomDatabase() {
+    abstract fun versionDAO(): VersionDAO
 }
