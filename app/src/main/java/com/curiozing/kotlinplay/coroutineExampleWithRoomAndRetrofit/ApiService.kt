@@ -9,6 +9,6 @@ interface ApiService {
     suspend fun getAndroidVersion(): List<Version>
 
     @GET("/ios.json")
-    suspend fun getiOSVersion(): List<Version>
+    suspend fun getIosVersion(): List<Version>
 
 }

@@ -12,7 +12,6 @@ object ApiHelper {
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory()).build()
 
-
     var retrofitClient: ApiService = client().create(ApiService::class.java)
 
 }
