@@ -43,6 +43,20 @@ class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
             AndroidVersionViewModel()
         }
         super.onCreate(savedInstanceState)
+
+
+        val data = listOf("1","2","3","4","5","6","7")
+        val splitNumber = 3
+
+        val chunkData = mutableListOf<List<String>>()
+        var i = 0
+        while (i < data.size){
+            val chuck:List<String> = data.subList(i, minOf(i+splitNumber,data.size))
+            chunkData.add(chuck)
+            i += splitNumber
+        }
+        println("data... $chunkData")
+
         registerLifeCycleOwner(this)
         setContent {
             KotlinPlayTheme {
