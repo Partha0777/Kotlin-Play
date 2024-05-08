@@ -47,7 +47,12 @@ class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
 
         val data = listOf("1","2","3","4","5","6","7")
         val splitNumber = 3
+        val datad = listOf(1,2,3,4,5)
 
+        val muliply = multiListWithN(datad){
+           it * 2
+        }
+        println("muliply $muliply")
         val chunkData = mutableListOf<List<String>>()
         var i = 0
         while (i < data.size){
@@ -144,6 +149,10 @@ class AnalyticsImpl : Analytics, LifecycleEventObserver {
 }
 
 
+fun <T,R> multiListWithN(list: List<T>,func: (T) -> R): List<R>{
+    return list.map { e-> func(e) }
+}
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
@@ -152,6 +161,9 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
+ fun <T> add(list: List<T>,func: (T) -> T) : List<T>{
+     return list.map { e -> func(e)}
+ }
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
