@@ -161,13 +161,14 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
- fun <T> add(list: List<T>,func: (T) -> T) : List<T>{
-     return list.map { e -> func(e)}
- }
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     KotlinPlayTheme {
         Greeting("Android")
     }
+}
+
+fun <T,R>addNumbers(list: List<T>, func: (T) -> R): List<R>{
+    return  list.map { e -> func(e) }
 }
