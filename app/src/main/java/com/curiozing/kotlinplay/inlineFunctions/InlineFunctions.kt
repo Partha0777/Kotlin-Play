@@ -23,7 +23,7 @@ fun main() {
         it % 2 == 0
     }
 
-    multiply(numbers){
+    multiply(numbers) {
         it * 2
     }
 
@@ -61,8 +61,8 @@ inline fun filterList(list: List<Int>, filter: (Int) -> Boolean) {
     println(filterList)
 }
 
-fun multiply(list: List<Int>, multiply: (Int) -> Int){
-    for (item in list){
+fun multiply(list: List<Int>, multiply: (Int) -> Int) {
+    for (item in list) {
         val value = multiply(item)
         println("Value is $value")
     }

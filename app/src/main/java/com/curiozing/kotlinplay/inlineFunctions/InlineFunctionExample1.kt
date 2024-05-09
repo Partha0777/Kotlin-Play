@@ -2,8 +2,8 @@ package com.curiozing.kotlinplay.inlineFunctions
 
 class InlineFunctionExample1 {
 
-    private lateinit var hello:String
-    fun runSomething(){
+    private lateinit var hello: String
+    fun runSomething() {
         var run = hello;
     }
 
@@ -12,12 +12,13 @@ class InlineFunctionExample1 {
 fun main() {
 
     val numbers = listOf(1, 2)
-    multiply(numbers){
+    multiply(numbers) {
         it * 2
     }
 }
- inline fun multiplyNumber(list: List<Int>, multiply: (Int) -> Int){
-    for (item in list){
+
+inline fun multiplyNumber(list: List<Int>, multiply: (Int) -> Int) {
+    for (item in list) {
         val value = multiply(item)
         println("Value is $value")
     }
