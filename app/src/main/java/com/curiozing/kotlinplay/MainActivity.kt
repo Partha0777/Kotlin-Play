@@ -30,6 +30,10 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
+import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 import com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit.AndroidVersionViewModel
 import com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit.UiState
 import com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit.Version
@@ -38,10 +42,7 @@ import com.curiozing.kotlinplay.ui.theme.KotlinPlayTheme
 class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        var viewModel = MainViewModel()
-        val androidViewModel by lazy {
-            AndroidVersionViewModel()
-        }
+
         super.onCreate(savedInstanceState)
 
 
@@ -64,63 +65,8 @@ class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
 
         registerLifeCycleOwner(this)
         setContent {
-            KotlinPlayTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Column(
-                        modifier = Modifier.fillMaxSize(),
-                        verticalArrangement = Arrangement.Center,
-                        horizontalAlignment = Alignment.CenterHorizontally
-                    ) {
-
-                        androidViewModel.getUiState.let {
-                            when(it.value){
-                                is UiState.Loading -> {
-                                    Button(onClick = {
-                                        androidViewModel.getAndroidVersions()
-                                    }) {
-                                        Text(text = "Call Android API")
-                                    }
-                                    Spacer(modifier = Modifier.height(50.dp))
-                                    Text(text = "")
-                                    Spacer(modifier = Modifier.height(50.dp))
-                                    Button(onClick = {
-                                        viewModel.getDrinks()
-                                    }) {
-                                        Text(text = "Call API <>")
-                                    }
-                                }
-
-                                is UiState.Success ->{
-                                    LazyColumn(
-                                        content = {
-                                        items((it.value as UiState.Success).response){ item ->
-                                            Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
-                                                Text(text = item.name)
-                                                Text(text = item.version)
-                                            }
-                                            Spacer(modifier = Modifier.height(12.dp))
-                                        }
-                                    }, modifier = Modifier.padding(horizontal = 12.dp)
-                                    )
-                                }
-
-                                else -> {
-
-                                }
-                            }
-
-                        }
-
-
-
-
-                    }
-                }
-            }
+            val navController = rememberNavController()
+            AppNavigation(navController = navController)
         }
     }
 }
@@ -148,6 +94,97 @@ class AnalyticsImpl : Analytics, LifecycleEventObserver {
 
 }
 
+@Composable
+fun HomeScreen(navController: NavHostController){
+    var viewModel = MainViewModel()
+    val androidViewModel by lazy {
+        AndroidVersionViewModel()
+    }
+    KotlinPlayTheme {
+        // A surface container using the 'background' color from the theme
+        Surface(
+            modifier = Modifier.fillMaxSize(),
+            color = MaterialTheme.colorScheme.background
+        ) {
+            Column(
+                modifier = Modifier.fillMaxSize(),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ) {
+
+                androidViewModel.getUiState.let {
+                    when(it.value){
+                        is UiState.Loading -> {
+                            Button(onClick = {
+                                androidViewModel.getAndroidVersions()
+                            }) {
+                                Text(text = "Call Android API")
+                            }
+                            Spacer(modifier = Modifier.height(50.dp))
+                            Text(text = "")
+                            Spacer(modifier = Modifier.height(50.dp))
+                            Button(onClick = {
+                                viewModel.getDrinks()
+                            }) {
+                                Text(text = "Call API <>")
+                            }
+                            Spacer(modifier = Modifier.height(20.dp))
+                            Button(onClick = {
+                                navController.navigate("coroutine")
+                            }) {
+                                Text(text = "Navigate Coroutine")
+                            }
+                        }
+
+                        is UiState.Success ->{
+                            LazyColumn(
+                                content = {
+                                    items((it.value as UiState.Success).response){ item ->
+                                        Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+                                            Text(text = item.name)
+                                            Text(text = item.version)
+                                        }
+                                        Spacer(modifier = Modifier.height(12.dp))
+                                    }
+                                }, modifier = Modifier.padding(horizontal = 12.dp)
+                            )
+                        }
+
+                        else -> {
+
+                        }
+                    }
+
+                }
+
+
+
+
+            }
+        }
+    }
+
+
+}
+
+
+
+@Composable
+fun AppNavigation(navController:NavHostController){
+
+    NavHost(navController = navController, startDestination = "main"){
+
+        composable(route= "main"){
+            HomeScreen(navController = navController)
+        }
+        composable(route = "coroutine"){
+            CoroutineAnalyser()
+        }
+
+    }
+
+}
+
 
 fun <T,R> multiListWithN(list: List<T>,func: (T) -> R): List<R>{
     return list.map { e-> func(e) }
@@ -172,3 +209,4 @@ fun GreetingPreview() {
 fun <T,R>addNumbers(list: List<T>, func: (T) -> R): List<R>{
     return  list.map { e -> func(e) }
 }
+
