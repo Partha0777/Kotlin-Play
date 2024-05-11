@@ -3,6 +3,7 @@ package com.curiozing.kotlinplay
 import android.widget.EditText
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,6 +15,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 
 
 @Composable
@@ -27,9 +29,18 @@ fun CoroutineAnalyser(){
                 .fillMaxHeight(),
             horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
             Text(text = "Enter Number: ")
-            TextField(value = numberInput.value, onValueChange = {
+            TextField(
+                modifier = Modifier.height(50.dp),
+                value = numberInput.value, onValueChange = {
                 numberInput.value = it
             })
+            Spacer(modifier = Modifier.height(24.dp))
+            Text(text = "Enter Number of coroutine: ")
+            TextField(
+                modifier = Modifier.height(50.dp),
+                value = numberInput.value, onValueChange = {
+                    numberInput.value = it
+                })
         }
     }
 }
