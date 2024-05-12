@@ -15,14 +15,15 @@ import kotlin.system.measureTimeMillis
 
 class AnalyserViewModel : ViewModel() {
 
-    var totalTime = mutableStateOf(0)
+    var totalTimeForCalculation = mutableStateOf(0)
+    var totalTimeForStringConv= mutableStateOf(0)
     fun factorial(input:Int,numberOfCoroutine:Int){
 
-        viewModelScope.launch {
-            val list = subList(input, numberOfCoroutine)
+        viewModelScope.launch {2
             var result = BigInteger.ZERO
-            var time1 = measureTimeMillis {
+            val time1 = measureTimeMillis {
                 result =  withContext(Dispatchers.Default){
+                    val list = subList(input, numberOfCoroutine)
                     list.map {
                         async {
                             calculateFactorial(it)
@@ -31,15 +32,15 @@ class AnalyserViewModel : ViewModel() {
                 }.awaitAll().fold(BigInteger.ONE) { acc, element ->
                     acc.multiply(element)
                 }
-
             }
             var finalValue = ""
-            var time2 = measureTimeMillis {
+            val time2 = measureTimeMillis {
                finalValue = convertToString(result)
             }
-            totalTime.value = (time1 + time2).toInt()
-            println("Data $finalValue")
-            println("Data time ${time1 + time2}")
+            totalTimeForCalculation.value = time1.toInt()
+            totalTimeForStringConv.value = time2.toInt()
+
+            println("data... $finalValue")
         }
     }
 
@@ -58,10 +59,7 @@ class AnalyserViewModel : ViewModel() {
 
     fun subList(value: Int,set:Int): List<List<Int>>{
         var i = 0
-        val list = mutableListOf<Int>()
-        for (n in 0 until value){
-            list.add(n+1)
-        }
+        val list = List(value) { it + 1 }
         val data: MutableList<List<Int>> = mutableListOf()
         while (i < list.size){
             val chunk = list.subList(i, minOf(i+set,list.size))
