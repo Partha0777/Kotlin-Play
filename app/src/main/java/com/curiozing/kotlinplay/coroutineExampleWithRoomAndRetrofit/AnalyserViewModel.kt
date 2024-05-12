@@ -59,7 +59,9 @@ class AnalyserViewModel : ViewModel() {
 
     fun subList(value: Int,set:Int): List<List<Int>>{
         var i = 0
-        val list = List(value) { it + 1 }
+        val list = List(value){
+            it+1
+        }
         val data: MutableList<List<Int>> = mutableListOf()
         while (i < list.size){
             val chunk = list.subList(i, minOf(i+set,list.size))
