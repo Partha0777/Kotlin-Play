@@ -1,5 +1,8 @@
 package com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit
 
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
@@ -12,9 +15,7 @@ import kotlin.system.measureTimeMillis
 
 class AnalyserViewModel : ViewModel() {
 
-
-
-
+    var totalTime = mutableStateOf(0)
     fun factorial(input:Int,numberOfCoroutine:Int){
 
         viewModelScope.launch {
@@ -36,6 +37,7 @@ class AnalyserViewModel : ViewModel() {
             var time2 = measureTimeMillis {
                finalValue = convertToString(result)
             }
+            totalTime.value = (time1 + time2).toInt()
             println("Data $finalValue")
             println("Data time ${time1 + time2}")
         }
