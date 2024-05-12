@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Button
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -16,6 +17,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.min
 
@@ -27,6 +30,7 @@ fun CoroutineAnalyser() {
 
     Surface {
         val numberInput = remember { mutableStateOf("") }
+        val numberOfCoroutine = remember { mutableStateOf("") }
 
         Column(
             modifier = Modifier
@@ -37,6 +41,7 @@ fun CoroutineAnalyser() {
         ) {
             Text(text = "Enter Number: ")
             TextField(
+                keyboardOptions = KeyboardOptions().copy(keyboardType = KeyboardType.Decimal),
                 modifier = Modifier.height(50.dp),
                 value = numberInput.value, onValueChange = {
                     numberInput.value = it
@@ -44,15 +49,15 @@ fun CoroutineAnalyser() {
             Spacer(modifier = Modifier.height(24.dp))
             Text(text = "Enter Number of coroutine: ")
             TextField(
+                textStyle = TextStyle(),
+                keyboardOptions = KeyboardOptions().copy(keyboardType = KeyboardType.Decimal),
                 modifier = Modifier.height(50.dp),
-                value = numberInput.value, onValueChange = {
-                    numberInput.value = it
+                value = numberOfCoroutine.value, onValueChange = {
+                    numberOfCoroutine.value = it
                 })
             Spacer(modifier = Modifier.height(20.dp))
             Button(onClick = {
-
-                println("Data... "+ analyserViewModel.calculateFactorial(2,5))
-                println("Data... "+ analyserViewModel.subList(listOf(1,2,3,4,5,6,7,8),3))
+               analyserViewModel.factorial(numberInput.value.toInt(),numberOfCoroutine.value.toInt())
 
             }) {
                 Text(text = "Calculate")
