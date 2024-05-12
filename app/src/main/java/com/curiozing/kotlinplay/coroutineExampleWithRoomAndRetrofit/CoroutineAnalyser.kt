@@ -17,6 +17,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.min
 
 
 @Composable
@@ -49,7 +50,10 @@ fun CoroutineAnalyser() {
                 })
             Spacer(modifier = Modifier.height(20.dp))
             Button(onClick = {
+
                 println("Data... "+ analyserViewModel.calculateFactorial(2,5))
+                println("Data... "+ analyserViewModel.subList(listOf(1,2,3,4,5,6,7,8),3))
+
             }) {
                 Text(text = "Calculate")
             }

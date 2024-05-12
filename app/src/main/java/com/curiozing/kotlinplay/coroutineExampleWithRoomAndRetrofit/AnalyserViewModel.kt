@@ -12,4 +12,18 @@ class AnalyserViewModel : ViewModel() {
 
         return bigInteger
     }
+
+
+    fun subList(list:List<Int>,set:Int): List<List<Int>>{
+        var i = 0
+
+        var data: MutableList<List<Int>> = mutableListOf()
+        while (i < list.size){
+            val subList = list.subList(i, minOf(i+set,list.size))
+            data.add(subList)
+            i += set
+        }
+        return data
+    }
+
 }
