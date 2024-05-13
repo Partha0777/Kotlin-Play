@@ -19,7 +19,7 @@ class AnalyserViewModel : ViewModel() {
     var totalTimeForStringConv= mutableStateOf(0)
     fun factorial(input:Int,numberOfCoroutine:Int){
 
-        viewModelScope.launch {2
+        viewModelScope.launch {
             var result = BigInteger.ZERO
             val time1 = measureTimeMillis {
                 result =  withContext(Dispatchers.Default){
@@ -57,7 +57,7 @@ class AnalyserViewModel : ViewModel() {
         return bigInteger
     }
 
-    fun subList(value: Int,set:Int): List<List<Int>>{
+    private fun subList(value: Int, set:Int): List<List<Int>>{
         var i = 0
 
         val list = List(value){
