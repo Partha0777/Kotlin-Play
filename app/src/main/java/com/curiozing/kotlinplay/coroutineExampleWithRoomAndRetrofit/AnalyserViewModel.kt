@@ -15,14 +15,14 @@ import kotlin.system.measureTimeMillis
 
 class AnalyserViewModel : ViewModel() {
 
-    var totalTimeForCalculation = mutableStateOf(0)
-    var totalTimeForStringConv= mutableStateOf(0)
-    fun factorial(input:Int,numberOfCoroutine:Int){
+    var totalTimeForCalculation = mutableIntStateOf(0)
+    var totalTimeForStringConv = mutableIntStateOf(0)
+    fun factorial(input: Int, numberOfCoroutine: Int) {
 
         viewModelScope.launch {
             var result = BigInteger.ZERO
             val time1 = measureTimeMillis {
-                result =  withContext(Dispatchers.Default){
+                result = withContext(Dispatchers.Default) {
                     val list = subList(input, numberOfCoroutine)
                     list.map {
                         async {
@@ -35,7 +35,7 @@ class AnalyserViewModel : ViewModel() {
             }
             var finalValue = ""
             val time2 = measureTimeMillis {
-               finalValue = convertToString(result)
+                finalValue = convertToString(result)
             }
             totalTimeForCalculation.value = time1.toInt()
             totalTimeForStringConv.value = time2.toInt()
@@ -45,7 +45,7 @@ class AnalyserViewModel : ViewModel() {
     }
 
     private suspend fun convertToString(number: BigInteger) =
-        withContext(Dispatchers.Default){
+        withContext(Dispatchers.Default) {
             number.toString()
         }
 
@@ -57,21 +57,20 @@ class AnalyserViewModel : ViewModel() {
         return bigInteger
     }
 
-    private fun subList(value: Int, set:Int): List<List<Int>>{
+    private fun subList(value: Int, set: Int): List<List<Int>> {
         var i = 0
 
-        val list = List(value){
-            it+1
+        val list = List(value) {
+            it + 1
         }
         val data: MutableList<List<Int>> = mutableListOf()
-        if (value > 1){
-            while (i < list.size){
-                //[1][2][3][4][5][6]
-                val chunk = list.subList(i, minOf(i+set,list.size))
+        if (value > 1) {
+            while (i < list.size) {
+                val chunk = list.subList(i, minOf(i + set, list.size))
                 data.add(chunk)
                 i += set
             }
-        }else{
+        } else {
             data.add(list)
         }
         return data
