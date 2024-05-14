@@ -3,8 +3,6 @@ package com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
-
 @Entity("androidVersion")
 data class Version(
     @PrimaryKey(autoGenerate = true)
