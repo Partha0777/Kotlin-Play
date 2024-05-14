@@ -61,7 +61,10 @@ fun CoroutineAnalyser() {
             Text(text = "Total Time took for String Conv  ${analyserViewModel.totalTimeForStringConv.value} ms")
             Spacer(modifier = Modifier.height(20.dp))
             Button(onClick = {
-               analyserViewModel.factorial(numberInput.value.toInt(),numberOfCoroutine.value.toInt())
+                analyserViewModel.factorial(
+                    numberInput.value.toInt(),
+                    numberOfCoroutine.value.toInt()
+                )
             }) {
                 Text(text = "Calculate")
             }
