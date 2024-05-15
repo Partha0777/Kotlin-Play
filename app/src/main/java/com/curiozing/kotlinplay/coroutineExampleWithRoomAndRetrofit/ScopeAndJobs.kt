@@ -1,0 +1,29 @@
+package com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit
+
+import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+
+fun main() {
+   val scope = CoroutineScope(Job())
+
+    scope.launch {
+        delay(50)
+        println("Start coroutine 1")
+        throw RuntimeException()
+    }
+
+    scope.launch {
+        delay(500)
+        println("Start coroutine 2")
+    }.invokeOnCompletion { thowable ->
+        if (thowable is CancellationException){
+            println("Coroutine 2 got cancelled")
+        }
+    }
+
+    Thread.sleep(1000)
+
+}
