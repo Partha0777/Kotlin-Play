@@ -17,6 +17,7 @@ class MainViewModel : ViewModel() {
 
     fun getDrinks() {
         viewModelScope.launch {
+            println("Viewmodel called first")
             launch {
                 val response1 = NetworkHelper.drinksService.getHotCoffee()
                 Log.d("Response1 ", response1.string())
@@ -28,6 +29,8 @@ class MainViewModel : ViewModel() {
             Log.d("Response ", response.string())
 
         }
+        println("Viewmodel outer first")
+
     }
 
     suspend fun loadDrinks() {

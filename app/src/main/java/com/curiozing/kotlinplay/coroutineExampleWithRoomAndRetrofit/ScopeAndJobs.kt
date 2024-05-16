@@ -3,7 +3,6 @@ package com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
@@ -11,12 +10,12 @@ import kotlinx.coroutines.launch
 
 fun main() {
 
-    var jobexception = CoroutineExceptionHandler { coroutineContext, throwable ->
+    val jobException = CoroutineExceptionHandler { _, throwable ->
         println("Error $throwable")
     }
 
-    //val scope = CoroutineScope(Job()+jobexception)
-    val scope = CoroutineScope(SupervisorJob() + jobexception)
+    //val scope = CoroutineScope(Job()+jobException)
+    val scope = CoroutineScope(SupervisorJob() + jobException)
 
     scope.launch {
         delay(50)
