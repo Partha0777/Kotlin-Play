@@ -16,7 +16,7 @@ fun main() {
     }
 
     //val scope = CoroutineScope(Job()+jobexception)
-    val scope = CoroutineScope(SupervisorJob()+jobexception)
+    val scope = CoroutineScope(SupervisorJob() + jobexception)
 
     scope.launch {
         delay(50)
@@ -28,7 +28,7 @@ fun main() {
         delay(500)
         println("Start coroutine 2")
     }.invokeOnCompletion { thowable ->
-        if (thowable is CancellationException){
+        if (thowable is CancellationException) {
             println("Coroutine 2 got cancelled")
         }
     }
