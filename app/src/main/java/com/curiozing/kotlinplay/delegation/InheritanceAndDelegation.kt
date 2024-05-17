@@ -36,17 +36,17 @@ class Parrot : Birds {
 
 class Robin : Birds by Parrot()
 
-interface Gear{
+interface Gear {
     fun changeGear();
 
 }
 
-interface Steering{
+interface Steering {
 
     fun moveSteering();
 }
 
-class AutoGear : Gear{
+class AutoGear : Gear {
     override fun changeGear() {
         TODO("Not yet implemented")
     }
@@ -54,7 +54,7 @@ class AutoGear : Gear{
 
 }
 
-class ManualGear: Gear{
+class ManualGear : Gear {
     override fun changeGear() {
         TODO("Not yet implemented")
     }
@@ -62,23 +62,23 @@ class ManualGear: Gear{
 
 }
 
-class PowerSteering():Steering{
+class PowerSteering() : Steering {
     override fun moveSteering() {
         TODO("Not yet implemented")
     }
 
 }
 
-class NormalSteering():Steering{
+class NormalSteering() : Steering {
     override fun moveSteering() {
         TODO("Not yet implemented")
     }
 
 }
 
-class Car(val steering: Steering, val gear: Gear) : Steering by steering, Gear by gear{
+class Car(val steering: Steering, val gear: Gear) : Steering by steering, Gear by gear {
 
-    fun callMove(){
+    fun callMove() {
         steering.moveSteering()
     }
 
