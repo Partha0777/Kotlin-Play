@@ -7,6 +7,5 @@ import kotlinx.coroutines.launch
 class CoroutineExample {
     fun startCoroutine(){
         CoroutineScope(Dispatchers.Main).launch {  }
-
     }
 }
