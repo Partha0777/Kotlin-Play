@@ -6,7 +6,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class CoroutineExample {
-    fun startCoroutine(){
+    fun startCoroutine() {
         CoroutineScope(Dispatchers.Main).launch {
 
 
