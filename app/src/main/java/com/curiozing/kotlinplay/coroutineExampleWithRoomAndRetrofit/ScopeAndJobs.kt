@@ -4,10 +4,12 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 fun main() {
 
@@ -21,6 +23,9 @@ fun main() {
     scope.launch {
         delay(50)
         println("Start coroutine 1")
+        withContext(NonCancellable){
+            println("Job clear....")
+        }
         throw RuntimeException()
     }
 
