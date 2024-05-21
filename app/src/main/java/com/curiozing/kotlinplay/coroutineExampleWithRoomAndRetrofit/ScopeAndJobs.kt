@@ -38,7 +38,6 @@ fun main() {
         }
     }
 
-
     Thread.sleep(1000)
     println("is still Scope Active? ${scope.isActive}")
 

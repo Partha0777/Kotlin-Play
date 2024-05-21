@@ -9,7 +9,6 @@ fun main() {
 
 interface Music {
     fun play()
-
     fun pause()
 }
 
