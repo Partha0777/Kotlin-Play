@@ -23,7 +23,7 @@ fun main() {
     scope.launch {
         delay(50)
         println("Start coroutine 1")
-        withContext(NonCancellable){
+        withContext(NonCancellable) {
             println("Job clear....")
         }
         throw RuntimeException()
