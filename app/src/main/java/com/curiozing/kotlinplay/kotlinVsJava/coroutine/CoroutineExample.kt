@@ -9,15 +9,6 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.ClassCastException
 
-class CoroutineExample {
-    fun startCoroutine() {
-        CoroutineScope(Dispatchers.Main).launch {
-
-
-        }
-    }
-}
-
 fun main() {
 
     val job = CoroutineScope(SupervisorJob())

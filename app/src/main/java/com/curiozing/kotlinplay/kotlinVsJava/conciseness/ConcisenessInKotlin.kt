@@ -7,7 +7,6 @@ fun main() {
 }
 
 class ConcisenessInKotlin {
-
     fun loadList() {
         val data = listOf(1, 2, 3, 4, 5)
         val evenNumbers = data.filter { it % 2 == 0 }
