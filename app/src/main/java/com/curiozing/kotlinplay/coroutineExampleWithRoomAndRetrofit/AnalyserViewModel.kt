@@ -17,6 +17,10 @@ class AnalyserViewModel : ViewModel() {
 
     var totalTimeForCalculation = mutableIntStateOf(0)
     var totalTimeForStringConv = mutableIntStateOf(0)
+
+    fun <R,T>calculate(list: List<T>,func: (T) -> R):List<R>{
+      return  list.map{e -> func(e)}
+    }
     fun factorial(input: Int, numberOfCoroutine: Int) {
 
         viewModelScope.launch {
