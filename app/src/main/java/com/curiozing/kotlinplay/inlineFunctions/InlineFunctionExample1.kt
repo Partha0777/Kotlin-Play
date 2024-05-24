@@ -10,8 +10,8 @@ class InlineFunctionExample1 {
 }
 
 fun main() {
-
     val numbers = listOf(1, 2)
+
     multiply(numbers) {
         it * 2
     }
