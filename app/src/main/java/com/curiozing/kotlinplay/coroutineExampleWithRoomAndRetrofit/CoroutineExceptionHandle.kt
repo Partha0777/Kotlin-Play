@@ -10,11 +10,11 @@ fun main() {
     val coroutineException = CoroutineExceptionHandler { coroutineContext, throwable ->
         println("Coroutine Exception: $throwable")
     }
-    val job = CoroutineScope(Job())
+    val job = CoroutineScope(Job()+coroutineException)
 
     job.launch {
 
-        launch(coroutineException) {
+        launch {
             throw RuntimeException()
         }
 
