@@ -6,9 +6,7 @@ fun main() {
 }
 
 open class Animal() {
-    open fun makeSound() {
-
-    }
+    open fun makeSound() {}
 
     open fun run() {}
 }

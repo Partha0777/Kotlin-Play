@@ -26,6 +26,7 @@ class AnalyserViewModel : ViewModel() {
 
         viewModelScope.launch {
             var result = BigInteger.ZERO
+
             val time1 = measureTimeMillis {
                 result = withContext(Dispatchers.Default) {
                     val list = subList(input, numberOfCoroutine)
