@@ -1,5 +1,6 @@
 package com.curiozing.kotlinplay.kotlinVsJava.coroutine
 
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -10,19 +11,23 @@ import kotlinx.coroutines.launch
 import kotlin.ClassCastException
 
 fun main() {
+    val exceptionHandler = CoroutineExceptionHandler{_,throwable->
+        println("Exceptions is $throwable")
+    }
 
-    val job = CoroutineScope(SupervisorJob())
+    val job = CoroutineScope(SupervisorJob()+exceptionHandler)
 
     job.launch {
-        val exceptionHandler = CoroutineExceptionHandler { _, throwable ->
-            // Handle the exception from Job 2 here (e.g., log it)
-            println("Caught exception in Job 2: $throwable")
-        }
 
-        launch(exceptionHandler) {
+        launch {
             delay(100)
-            println("Running job 2")
-            throw RuntimeException()
+            try {
+                throw RuntimeException()
+                println("Running job 2")
+            }catch (e:Exception){
+                println("Exception $e")
+            }
+
         }
 
         launch {
@@ -36,16 +41,14 @@ fun main() {
         }
     }
 
-    /*
-        job.launch {
+    job.launch {
             launch {
                 delay(500)
                 println("Another Running job 2")
 
             }
 
-        }
-    */
+    }
 
     Thread.sleep(1000)
 
