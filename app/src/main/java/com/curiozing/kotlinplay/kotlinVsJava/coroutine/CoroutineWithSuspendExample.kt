@@ -27,7 +27,7 @@ fun main() {
     Thread.sleep(3000)
 }
 
-suspend fun callOuterFunction(){
+suspend fun callOuterFunction() {
     delay(1000)
     println("Suspended called")
 
