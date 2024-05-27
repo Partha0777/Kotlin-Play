@@ -17,6 +17,10 @@ fun main() {
     }
 }
 
+
+fun <R, T> calculate(list: List<T>, func: (T) -> R): List<R> {
+    return list.map { e -> func(e) }
+}
 inline fun multiplyNumber(list: List<Int>, multiply: (Int) -> Int) {
     for (item in list) {
         val value = multiply(item)
