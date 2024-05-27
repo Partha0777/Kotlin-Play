@@ -8,6 +8,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.math.BigInteger
@@ -47,7 +48,9 @@ class AnalyserViewModel : ViewModel() {
             totalTimeForStringConv.value = time2.toInt()
 
             println("data... $finalValue")
+
         }
+
     }
 
     private suspend fun convertToString(number: BigInteger) =
