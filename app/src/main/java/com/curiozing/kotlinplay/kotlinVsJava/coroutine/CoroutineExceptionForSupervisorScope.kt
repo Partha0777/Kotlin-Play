@@ -3,6 +3,7 @@ package com.curiozing.kotlinplay.kotlinVsJava.coroutine
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.async
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
@@ -27,21 +28,30 @@ fun main() {
 
     job.launch{
 
-        supervisorScope {
-            launch {
+        //supervisorScope {
+        val job1 = CoroutineScope(SupervisorJob())
+
+        try {
+            val data = job1.async {
                 throw RuntimeException()
             }
-            launch {
+            data.await()
+        }catch (e:Exception){
+            println("Caught $e")
+        }
+
+        launch {
                 delay(200)
                 println("Helooo 1")
 
             }
 
-        }
+       // }
 
     }
 
     job.launch {
+        delay(200)
         println("Helooo 2")
     }
 
