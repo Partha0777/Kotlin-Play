@@ -5,7 +5,10 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.CoroutineExceptionHandler
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.delay
@@ -21,7 +24,11 @@ class AnalyserViewModel : ViewModel() {
 
     fun factorial(input: Int, numberOfCoroutine: Int) {
 
-        viewModelScope.launch {
+        var coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+            println("Caught $throwable")
+        }
+
+        viewModelScope.launch(coroutineExceptionHandler) {
             var result = BigInteger.ZERO
 
             val time1 = measureTimeMillis {
@@ -43,8 +50,36 @@ class AnalyserViewModel : ViewModel() {
             totalTimeForCalculation.value = time1.toInt()
             totalTimeForStringConv.value = time2.toInt()
 
-            println("data... $finalValue")
 
+        }
+        val job = CoroutineScope(Dispatchers.Main+ SupervisorJob()+ coroutineExceptionHandler)
+
+        job.launch {
+
+            launch {
+                delay(300)
+                println("data... 1")
+                throw RuntimeException()
+
+            }
+            launch {
+                delay(500)
+                println("data... 2")
+
+            }
+            launch {
+                delay(1500)
+                println("data... 3")
+
+            }
+        }
+
+        job.launch {
+            launch {
+                delay(1500)
+                println("data... 3")
+
+            }
         }
 
     }
