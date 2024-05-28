@@ -52,9 +52,9 @@ class AnalyserViewModel : ViewModel() {
 
 
         }
-        val job = CoroutineScope(Dispatchers.Main+ SupervisorJob()+ coroutineExceptionHandler)
+        val job = CoroutineScope(Dispatchers.Main+coroutineExceptionHandler)
 
-        job.launch {
+        job.launch(coroutineExceptionHandler) {
 
             launch {
                 delay(300)
