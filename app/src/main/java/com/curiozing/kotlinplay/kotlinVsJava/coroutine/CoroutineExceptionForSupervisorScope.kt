@@ -26,20 +26,20 @@ import kotlinx.coroutines.supervisorScope
 fun main() {
     val job = CoroutineScope(SupervisorJob())
 
-    job.launch{
+    job.launch {
 
         supervisorScope {
 
-        try {
-            val data = async {
-                throw RuntimeException()
+            try {
+                val data = async {
+                    throw RuntimeException()
+                }
+                data.await()
+            } catch (e: Exception) {
+                println("Caught $e")
             }
-            data.await()
-        }catch (e:Exception){
-            println("Caught $e")
-        }
 
-        launch {
+            launch {
                 delay(200)
                 println("Helooo 1")
 
