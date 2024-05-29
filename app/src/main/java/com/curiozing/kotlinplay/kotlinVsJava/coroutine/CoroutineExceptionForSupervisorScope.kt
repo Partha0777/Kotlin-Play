@@ -28,11 +28,10 @@ fun main() {
 
     job.launch{
 
-        //supervisorScope {
-        val job1 = CoroutineScope(SupervisorJob())
+        supervisorScope {
 
         try {
-            val data = job1.async {
+            val data = async {
                 throw RuntimeException()
             }
             data.await()
@@ -45,8 +44,7 @@ fun main() {
                 println("Helooo 1")
 
             }
-
-       // }
+        }
 
     }
 
