@@ -28,7 +28,7 @@ fun main() {
 }
 
 suspend fun callOuterFunction() {
-    delay(1000)
+    delay(2000)
     println("Suspended called")
 
 }
