@@ -1,5 +1,8 @@
 package com.curiozing.kotlinplay.kotlinFlow
 
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -11,7 +14,11 @@ import java.math.BigInteger
 fun main() = runBlocking{
     val startTime = System.currentTimeMillis()
     println("Async Example1")
+
+        testSuspend()
+
     launch {
+
         calculateFactorialList(5).collect {
             println("factorial...${System.currentTimeMillis() - startTime} - $it")
         }
@@ -27,4 +34,9 @@ private fun calculateFactorialList(number: Int): Flow<BigInteger> = flow{
         factorial = factorial.multiply(BigInteger.valueOf(i.toLong()))
         emit(factorial)
     }
+}
+
+suspend fun testSuspend(){
+    delay(1000)
+    println("testSuspend CALLED")
 }
