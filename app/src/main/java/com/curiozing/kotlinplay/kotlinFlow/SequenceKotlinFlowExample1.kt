@@ -14,7 +14,7 @@ fun main() {
 private fun calculateFactorialList(number: Int): Sequence<BigInteger> = sequence{
     var factorial = BigInteger.ONE
     for (i in 1..number) {
-        Thread.sleep(10)
+        Thread.sleep(1000)
         factorial = factorial.multiply(BigInteger.valueOf(i.toLong()))
         yield(factorial)
     }
