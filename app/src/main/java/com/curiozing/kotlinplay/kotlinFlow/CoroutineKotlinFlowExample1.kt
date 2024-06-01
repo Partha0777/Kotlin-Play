@@ -11,11 +11,11 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.math.BigInteger
 
-fun main() = runBlocking{
+fun main() = runBlocking {
     val startTime = System.currentTimeMillis()
     println("Async Example1")
 
-        testSuspend()
+    testSuspend()
 
     launch {
 
@@ -27,7 +27,7 @@ fun main() = runBlocking{
     println("Async Example2")
 }
 
-private fun calculateFactorialList(number: Int): Flow<BigInteger> = flow{
+private fun calculateFactorialList(number: Int): Flow<BigInteger> = flow {
     var factorial = BigInteger.ONE
     for (i in 1..number) {
         delay(100)
@@ -36,7 +36,7 @@ private fun calculateFactorialList(number: Int): Flow<BigInteger> = flow{
     }
 }
 
-suspend fun testSuspend(){
+suspend fun testSuspend() {
     delay(1000)
     println("testSuspend CALLED")
 }
