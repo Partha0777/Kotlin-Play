@@ -8,7 +8,6 @@ fun main() {
         println("factorial...${System.currentTimeMillis() - startTime} - $it")
     }
     println("Sync Only")
-
 }
 
 private fun calculateFactorialList(number: Int): Sequence<BigInteger> = sequence{
