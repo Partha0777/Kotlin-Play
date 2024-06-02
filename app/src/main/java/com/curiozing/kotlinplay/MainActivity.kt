@@ -111,6 +111,12 @@ fun HomeScreen(navController: NavHostController){
                     when(it.value){
                         is UiState.Loading -> {
                             Button(onClick = {
+                                androidViewModel.getCurrentTime()
+                            }) {
+                                Text(text = "Get Current Time")
+                            }
+                            Spacer(modifier = Modifier.height(20.dp))
+                            Button(onClick = {
                                 androidViewModel.getAndroidVersions()
                             }) {
                                 Text(text = "Call Android API")

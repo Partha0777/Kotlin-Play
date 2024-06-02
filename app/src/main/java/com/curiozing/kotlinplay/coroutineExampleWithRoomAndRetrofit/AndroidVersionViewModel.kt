@@ -4,6 +4,9 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.curiozing.kotlinplay.MyApplication
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
 
 class AndroidVersionViewModel : ViewModel() {
@@ -45,5 +48,20 @@ class AndroidVersionViewModel : ViewModel() {
             uiState.value = UiState.Success(remoteData)
         }
 
+    }
+
+    fun getCurrentTime(){
+
+        viewModelScope.launch {
+            flow {
+                while (true){
+                    val currentTime = ApiHelper.retrofitClient.getCurrentTime()
+                    emit(currentTime)
+                    kotlinx.coroutines.delay(1000)
+                }
+            }.collect{
+                println("CurrentTime ${it.utc_datetime}")
+            }
+        }
     }
 }

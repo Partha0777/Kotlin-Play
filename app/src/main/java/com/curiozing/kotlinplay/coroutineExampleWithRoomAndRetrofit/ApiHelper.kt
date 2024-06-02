@@ -9,7 +9,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ApiHelper {
 
     private fun client(): Retrofit = Retrofit.Builder().client(OkHttpClient())
-        .baseUrl("https://kotlin-play-default-rtdb.firebaseio.com")
+        .baseUrl("https://worldtimeapi.org/api/timezone/Asia/")
         .addConverterFactory(GsonConverterFactory.create())
         .addCallAdapterFactory(CoroutineCallAdapterFactory()).build()
 
