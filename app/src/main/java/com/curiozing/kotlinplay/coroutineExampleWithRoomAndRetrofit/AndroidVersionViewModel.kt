@@ -4,6 +4,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.curiozing.kotlinplay.MyApplication
+import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
@@ -24,7 +26,6 @@ class AndroidVersionViewModel : ViewModel() {
                     uiState.value = UiState.Success(localData)
                 }
             }
-
             val remoteData = ApiHelper.retrofitClient.getAndroidVersion()
 
             remoteData.forEachIndexed { index, version ->
@@ -53,6 +54,18 @@ class AndroidVersionViewModel : ViewModel() {
     fun getCurrentTime() {
 
         viewModelScope.launch {
+
+
+          /*      while(true){
+                    val currentTime = ApiHelper.retrofitClient.getCurrentTime()
+                    uiState.value = UiState.LoadTime(currentTime)
+                    delay(500)
+
+                }
+
+
+            println("Hello it's called....")*/
+
             val currentTime:Flow<Time> = flow {
                 while (true) {
                     val currentTime = ApiHelper.retrofitClient.getCurrentTime()
