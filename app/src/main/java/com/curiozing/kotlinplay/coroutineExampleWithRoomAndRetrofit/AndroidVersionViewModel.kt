@@ -60,7 +60,7 @@ class AndroidVersionViewModel : ViewModel() {
                     kotlinx.coroutines.delay(1000)
                 }
             }.collect{
-                println("CurrentTime ${it.utc_datetime}")
+                uiState.value = UiState.LoadTime(it)
             }
         }
     }

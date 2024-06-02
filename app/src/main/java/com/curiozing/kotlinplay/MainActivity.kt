@@ -151,6 +151,13 @@ fun HomeScreen(navController: NavHostController){
                             )
                         }
 
+                        is UiState.LoadTime ->{
+                            Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+                                Text(text = (it.value as UiState.LoadTime).response.utc_datetime)
+                            }
+                            
+                        }
+
                         else -> {
 
                         }
