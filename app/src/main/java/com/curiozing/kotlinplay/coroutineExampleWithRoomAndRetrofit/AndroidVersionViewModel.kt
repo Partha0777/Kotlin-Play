@@ -53,15 +53,18 @@ class AndroidVersionViewModel : ViewModel() {
     fun getCurrentTime() {
 
         viewModelScope.launch {
-            flow {
+            val currentTime:Flow<Time> = flow {
                 while (true) {
                     val currentTime = ApiHelper.retrofitClient.getCurrentTime()
                     emit(currentTime)
                     kotlinx.coroutines.delay(1000)
                 }
-            }.collect {
+            }
+
+            currentTime.collect{
                 uiState.value = UiState.LoadTime(it)
             }
+
         }
     }
 }
