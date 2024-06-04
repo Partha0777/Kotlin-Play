@@ -70,7 +70,7 @@ class AndroidVersionViewModel : ViewModel() {
                 while (true) {
                     val currentTime = ApiHelper.retrofitClient.getCurrentTime()
                     emit(currentTime)
-                    kotlinx.coroutines.delay(1000)
+                    delay(1000)
                 }
             }
 
