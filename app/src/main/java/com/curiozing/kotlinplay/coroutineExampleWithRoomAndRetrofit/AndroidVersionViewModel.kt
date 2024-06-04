@@ -9,6 +9,8 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 class AndroidVersionViewModel : ViewModel() {
@@ -53,10 +55,12 @@ class AndroidVersionViewModel : ViewModel() {
 
     fun getCurrentTime() {
 
+/*
         viewModelScope.launch {
 
 
-          /*      while(true){
+          */
+/*      while(true){
                     val currentTime = ApiHelper.retrofitClient.getCurrentTime()
                     uiState.value = UiState.LoadTime(currentTime)
                     delay(500)
@@ -64,7 +68,8 @@ class AndroidVersionViewModel : ViewModel() {
                 }
 
 
-            println("Hello it's called....")*/
+            println("Hello it's called....")*//*
+
 
             val currentTime:Flow<Time> = flow {
                 while (true) {
@@ -74,10 +79,26 @@ class AndroidVersionViewModel : ViewModel() {
                 }
             }
 
+
             currentTime.collect{
                 uiState.value = UiState.LoadTime(it)
             }
 
         }
+*/
+
+        val currentTime:Flow<Time> = flow {
+            while (true) {
+                val currentTime = ApiHelper.retrofitClient.getCurrentTime()
+                emit(currentTime)
+                delay(1000)
+            }
+        }
+
+        currentTime
+            .onEach {
+                uiState.value = UiState.LoadTime(it)
+            }
+            .launchIn(viewModelScope)
     }
 }
