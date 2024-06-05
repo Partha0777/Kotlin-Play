@@ -4,7 +4,10 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.runBlocking
 import kotlin.coroutines.EmptyCoroutineContext
 
@@ -32,6 +35,10 @@ fun main() {
 
     flow.onEach {
         println("Res $it")
+
+    }.onStart {
+       println("It's get started")
+    }.onCompletion {
 
     }.launchIn(scope)
     println("After Flow")
