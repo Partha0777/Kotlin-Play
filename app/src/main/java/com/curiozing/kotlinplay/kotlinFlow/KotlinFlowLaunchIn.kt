@@ -33,11 +33,12 @@ fun main() {
 */
     val scope = CoroutineScope(EmptyCoroutineContext)
 
-    flow.onEach {
-        println("Res $it")
-
+    flow.map {
+        "$it mapped"
     }.onStart {
-       println("It's get started")
+        println("It's get started")
+    }.onEach {
+        println("Res $it")
     }.onCompletion {
         println("It got end...")
     }.launchIn(scope)
