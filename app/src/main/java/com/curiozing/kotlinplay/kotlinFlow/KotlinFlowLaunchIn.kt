@@ -39,7 +39,7 @@ fun main() {
     }.onStart {
        println("It's get started")
     }.onCompletion {
-
+        println("It got end...")
     }.launchIn(scope)
     println("After Flow")
 
