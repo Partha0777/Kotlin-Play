@@ -24,13 +24,13 @@ fun main() {
         emit("Hello 3")
     }
 
-   /* runBlocking {
-        flow.collect{
-            println("Res $it")
-        }
-        println("After Flow")
-    }
-*/
+    /* runBlocking {
+         flow.collect{
+             println("Res $it")
+         }
+         println("After Flow")
+     }
+ */
     val scope = CoroutineScope(EmptyCoroutineContext)
 
     flow.map {
@@ -41,10 +41,10 @@ fun main() {
         println("It's get started 2")
     }
         .onEach {
-        println("Res $it")
-    }.onCompletion {
-        println("It got end...")
-    }.launchIn(scope)
+            println("Res $it")
+        }.onCompletion {
+            println("It got end...")
+        }.launchIn(scope)
     println("After Flow")
 
     Thread.sleep(1000)
