@@ -36,8 +36,11 @@ fun main() {
     flow.map {
         "$it mapped"
     }.onStart {
-        println("It's get started")
-    }.onEach {
+        println("It's get started 1")
+    }.onStart {
+        println("It's get started 2")
+    }
+        .onEach {
         println("Res $it")
     }.onCompletion {
         println("It got end...")
