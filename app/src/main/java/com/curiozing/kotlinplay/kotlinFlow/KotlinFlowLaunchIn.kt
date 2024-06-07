@@ -24,15 +24,13 @@ fun main() {
         emit("Hello 3")
     }
 
-    /* runBlocking {
+     runBlocking {
          flow.collect{
              println("Res $it")
          }
          println("After Flow")
      }
- */
     val scope = CoroutineScope(EmptyCoroutineContext)
-
 
     flow.map {
         "$it mapped"
