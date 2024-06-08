@@ -60,20 +60,20 @@ class AndroidVersionViewModel : ViewModel() {
 
     fun getCurrentTime() {
 
-/*
-        viewModelScope.launch {
+        /*
+                viewModelScope.launch {
 
 
-          */
-/*      while(true){
-                    val currentTime = ApiHelper.retrofitClient.getCurrentTime()
-                    uiState.value = UiState.LoadTime(currentTime)
-                    delay(500)
+                  */
+        /*      while(true){
+                            val currentTime = ApiHelper.retrofitClient.getCurrentTime()
+                            uiState.value = UiState.LoadTime(currentTime)
+                            delay(500)
 
-                }
+                        }
 
 
-            println("Hello it's called....")*//*
+                    println("Hello it's called....")*//*
 
 
             val currentTime:Flow<Time> = flow {
@@ -92,7 +92,7 @@ class AndroidVersionViewModel : ViewModel() {
         }
 */
 
-        val currentTime:Flow<Time> = flow {
+        val currentTime: Flow<Time> = flow {
             while (true) {
                 val currentTime = ApiHelper.retrofitClient.getCurrentTime()
                 emit(currentTime)
