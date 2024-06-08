@@ -84,6 +84,10 @@ class AnalyserViewModel : ViewModel() {
 
     }
 
+    private suspend fun getTime(){
+
+    }
+
     private suspend fun convertToString(number: BigInteger) =
         withContext(Dispatchers.Default) {
             number.toString()

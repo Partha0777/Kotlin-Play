@@ -1,7 +1,9 @@
 package com.curiozing.kotlinplay.coroutineExampleWithRoomAndRetrofit
 
 import androidx.compose.runtime.mutableStateOf
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.curiozing.kotlinplay.MyApplication
 import kotlinx.coroutines.async
@@ -10,7 +12,10 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
 
 class AndroidVersionViewModel : ViewModel() {
@@ -100,5 +105,15 @@ class AndroidVersionViewModel : ViewModel() {
                 uiState.value = UiState.LoadTime(it)
             }
             .launchIn(viewModelScope)
+
+        var currentTimeLive: LiveData<UiState> = currentTime.map {
+            UiState.LoadTime(it)
+        }.onStart {
+
+        }.onCompletion {
+
+        }.asLiveData()
     }
+
+
 }
