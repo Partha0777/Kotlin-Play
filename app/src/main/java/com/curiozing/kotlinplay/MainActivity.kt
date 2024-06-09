@@ -108,6 +108,7 @@ fun HomeScreen(navController: NavHostController) {
             ) {
 
                 //TODO: Below example used for live data to observer with compose style
+
                 /* val uiState = androidViewModel.uiState.observeAsState(initial = UiState.Loading)
                  when(uiState.value){
                      is UiState.Loading ->{
