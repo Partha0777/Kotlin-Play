@@ -41,18 +41,18 @@ class MainActivity : ComponentActivity(), Analytics by AnalyticsImpl() {
         super.onCreate(savedInstanceState)
 
 
-        val data = listOf("1","2","3","4","5","6","7")
+        val data = listOf("1", "2", "3", "4", "5", "6", "7")
         val splitNumber = 3
-        val datad = listOf(1,2,3,4,5)
+        val datad = listOf(1, 2, 3, 4, 5)
 
-        val muliply = multiListWithN(datad){
-           it * 2
+        val muliply = multiListWithN(datad) {
+            it * 2
         }
         println("muliply $muliply")
         val chunkData = mutableListOf<List<String>>()
         var i = 0
-        while (i < data.size){
-            val chuck:List<String> = data.subList(i, minOf(i+splitNumber,data.size))
+        while (i < data.size) {
+            val chuck: List<String> = data.subList(i, minOf(i + splitNumber, data.size))
             chunkData.add(chuck)
             i += splitNumber
         }
@@ -90,7 +90,7 @@ class AnalyticsImpl : Analytics, LifecycleEventObserver {
 }
 
 @Composable
-fun HomeScreen(navController: NavHostController){
+fun HomeScreen(navController: NavHostController) {
     var viewModel = MainViewModel()
     val androidViewModel by lazy {
         AndroidVersionViewModel()
@@ -108,24 +108,24 @@ fun HomeScreen(navController: NavHostController){
             ) {
 
                 //TODO: Below example used for live data to observer with compose style
-               /* val uiState = androidViewModel.uiState.observeAsState(initial = UiState.Loading)
-                when(uiState.value){
-                    is UiState.Loading ->{
-                        Text(text = "Loading...")
-                    }
-                    is UiState.LoadTime ->{
-                        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
-                            Text(text = (uiState.value as UiState.LoadTime).response.utc_datetime)
-                        }
-                    }
-                    else -> {
+                /* val uiState = androidViewModel.uiState.observeAsState(initial = UiState.Loading)
+                 when(uiState.value){
+                     is UiState.Loading ->{
+                         Text(text = "Loading...")
+                     }
+                     is UiState.LoadTime ->{
+                         Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+                             Text(text = (uiState.value as UiState.LoadTime).response.utc_datetime)
+                         }
+                     }
+                     else -> {
 
-                    }
-                }*/
+                     }
+                 }*/
 
 
                 androidViewModel.getUiState.let {
-                    when(it.value){
+                    when (it.value) {
                         is UiState.Loading -> {
                             Button(onClick = {
                                 androidViewModel.getCurrentTime()
@@ -154,11 +154,14 @@ fun HomeScreen(navController: NavHostController){
                             }
                         }
 
-                        is UiState.Success ->{
+                        is UiState.Success -> {
                             LazyColumn(
                                 content = {
-                                    items((it.value as UiState.Success).response){ item ->
-                                        Row(horizontalArrangement = Arrangement.SpaceBetween, modifier = Modifier.fillMaxWidth()) {
+                                    items((it.value as UiState.Success).response) { item ->
+                                        Row(
+                                            horizontalArrangement = Arrangement.SpaceBetween,
+                                            modifier = Modifier.fillMaxWidth()
+                                        ) {
                                             Text(text = item.name)
                                             Text(text = item.version)
                                         }
@@ -168,11 +171,14 @@ fun HomeScreen(navController: NavHostController){
                             )
                         }
 
-                        is UiState.LoadTime ->{
-                            Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+                        is UiState.LoadTime -> {
+                            Column(
+                                horizontalAlignment = Alignment.CenterHorizontally,
+                                verticalArrangement = Arrangement.Center
+                            ) {
                                 Text(text = (it.value as UiState.LoadTime).response.utc_datetime)
                             }
-                            
+
                         }
 
                         else -> {
@@ -183,8 +189,6 @@ fun HomeScreen(navController: NavHostController){
                 }
 
 
-
-
             }
         }
     }
@@ -193,16 +197,15 @@ fun HomeScreen(navController: NavHostController){
 }
 
 
-
 @Composable
-fun AppNavigation(navController:NavHostController){
+fun AppNavigation(navController: NavHostController) {
 
-    NavHost(navController = navController, startDestination = "main"){
+    NavHost(navController = navController, startDestination = "main") {
 
-        composable(route= "main"){
+        composable(route = "main") {
             HomeScreen(navController = navController)
         }
-        composable(route = "coroutine"){
+        composable(route = "coroutine") {
             CoroutineAnalyser()
         }
 
@@ -211,8 +214,8 @@ fun AppNavigation(navController:NavHostController){
 }
 
 
-fun <T,R> multiListWithN(list: List<T>,func: (T) -> R): List<R>{
-    return list.map { e-> func(e) }
+fun <T, R> multiListWithN(list: List<T>, func: (T) -> R): List<R> {
+    return list.map { e -> func(e) }
 }
 
 @Composable
@@ -231,7 +234,7 @@ fun GreetingPreview() {
     }
 }
 
-fun <T,R>addNumbers(list: List<T>, func: (T) -> R): List<R>{
-    return  list.map { e -> func(e) }
+fun <T, R> addNumbers(list: List<T>, func: (T) -> R): List<R> {
+    return list.map { e -> func(e) }
 }
 
