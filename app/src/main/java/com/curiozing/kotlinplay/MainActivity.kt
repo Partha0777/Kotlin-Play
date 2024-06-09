@@ -107,6 +107,23 @@ fun HomeScreen(navController: NavHostController){
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
 
+                //TODO: Below example used for live data to observer with compose style
+               /* val uiState = androidViewModel.uiState.observeAsState(initial = UiState.Loading)
+                when(uiState.value){
+                    is UiState.Loading ->{
+                        Text(text = "Loading...")
+                    }
+                    is UiState.LoadTime ->{
+                        Column(horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center) {
+                            Text(text = (uiState.value as UiState.LoadTime).response.utc_datetime)
+                        }
+                    }
+                    else -> {
+
+                    }
+                }*/
+
+
                 androidViewModel.getUiState.let {
                     when(it.value){
                         is UiState.Loading -> {
