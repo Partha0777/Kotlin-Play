@@ -64,8 +64,7 @@ class AndroidVersionViewModel : ViewModel() {
                 viewModelScope.launch {
 
 
-                  */
-        /*      while(true){
+                  *//*      while(true){
                             val currentTime = ApiHelper.retrofitClient.getCurrentTime()
                             uiState.value = UiState.LoadTime(currentTime)
                             delay(500)
@@ -100,11 +99,9 @@ class AndroidVersionViewModel : ViewModel() {
             }
         }
 
-        currentTime
-            .onEach {
-                uiState.value = UiState.LoadTime(it)
-            }
-            .launchIn(viewModelScope)
+        currentTime.onEach {
+            uiState.value = UiState.LoadTime(it)
+        }.launchIn(viewModelScope)
 
         var currentTimeLive: LiveData<UiState> = currentTime.map {
             UiState.LoadTime(it)
