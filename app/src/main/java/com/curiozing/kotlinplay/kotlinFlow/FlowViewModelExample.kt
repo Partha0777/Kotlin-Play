@@ -24,7 +24,7 @@ class FlowViewModelExample : ViewModel() {
         }
     }
 
-
+    //Map is the intermediate operator and asLiveData is terminal Operator
     var uiState: LiveData<UiState> = currentTime.map {
         UiState.LoadTime(it) as UiState
     }.onStart {
