@@ -1,8 +1,6 @@
 package com.curiozing.kotlinplay.kotlinFlow.intermediateOperator
 
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.takeWhile
 
 suspend fun main() {
