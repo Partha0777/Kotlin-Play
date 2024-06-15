@@ -4,11 +4,11 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.takeWhile
 
 suspend fun main() {
-    flowOf(1,2,3,4,5)
+    flowOf(1, 2, 3, 4, 5)
         .takeWhile {
             it < 3
         }
-        .collect{
-        println("Take $it")
-    }
+        .collect {
+            println("Take $it")
+        }
 }

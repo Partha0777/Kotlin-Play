@@ -5,18 +5,18 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.transform
 
 
-suspend fun main(){
+suspend fun main() {
 
-    flowOf(1,2,3,4,5,6,7,8)
-        .transform{
-           if(it % 2 == 0){
-               emit(it)
-           }
-            if (it == 3){
+    flowOf(1, 2, 3, 4, 5, 6, 7, 8)
+        .transform {
+            if (it % 2 == 0) {
+                emit(it)
+            }
+            if (it == 3) {
                 emit(it)
             }
         }
-        .collect{
+        .collect {
             println("Data $it")
         }
 }
