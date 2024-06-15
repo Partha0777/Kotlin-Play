@@ -12,9 +12,9 @@ suspend fun main(){
            if(it % 2 == 0){
                emit(it)
            }
-          /*  if (it == 3){
+            if (it == 3){
                 emit(it)
-            }*/
+            }
         }
         .collect{
             println("Data $it")
