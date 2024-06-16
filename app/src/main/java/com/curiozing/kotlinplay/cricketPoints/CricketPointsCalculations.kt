@@ -24,6 +24,7 @@ data class Player(
     var totalWickets: Double,
     var economyRate: Double,
     var fiveWicketsHauls: Double,
+    var isStarPlayer: Boolean,
     var role: Role,
     )
 
@@ -38,6 +39,7 @@ fun main() {
         4.0,
         8.05,
         0.0,
+        true,
         Role.Batsman
     )
 
@@ -50,6 +52,7 @@ fun main() {
         1.0,
         9.97,
         0.0,
+        true,
         Role.Batsman
     )
 
@@ -62,6 +65,7 @@ fun main() {
         79.0,
         6.44,
         0.0,
+        true,
         Role.Bowler
     )
     var bumrahIpl = Player(name = "Jasprit Bumrah",
@@ -73,6 +77,7 @@ fun main() {
         165.0,
         7.3,
         2.0,
+        true,
         Role.Bowler
     )
 
@@ -85,11 +90,12 @@ fun main() {
         72.0,
         6.91,
         0.0,
+        false,
         Role.AllRounder
     )
 
 
-    val player:Player = bumrahIpl
+    val player:Player = bumrah
 
     val battingCriteria = listOf(
         normalize(player.battingAvg, 60.0),  // Bowling Average
@@ -98,7 +104,7 @@ fun main() {
         normalize(player.centuriesAndFifties, 30.0)  // Centuries and Fifties
     )
 
-    val battingWeightage = listOf(0.3, 0.4, 0.3, 0.1)
+    val battingWeightage = listOf(0.3, 0.3, 0.3, 0.1)
 
     var battingPoints = calculatePoints(battingCriteria, battingWeightage)
     if(player.role == Role.Bowler){
@@ -115,7 +121,7 @@ fun main() {
         normalize(player.fiveWicketsHauls, 5.0)   // Five-Wicket Hauls
     )
 
-    val bowlingWeightage = listOf(0.4, 0.3, 0.3, 0.1)
+    val bowlingWeightage = listOf(0.35, 0.2, 0.35, 0.1)
 
     var bowlingPoints = calculatePoints(bowlingCriteria, bowlingWeightage)
     if (player.role == Role.Batsman){
