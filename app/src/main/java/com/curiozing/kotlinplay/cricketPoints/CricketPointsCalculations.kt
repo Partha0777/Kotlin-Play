@@ -7,7 +7,7 @@ fun normalize(value: Double, maxValue: Double): Double {
 }
 
 fun calculatePoints(criteria: List<Double>, weightage: List<Double>): Double {
-    return criteria.zip(weightage).sumByDouble { (c, w) -> c * w }
+    return criteria.zip(weightage).sumOf { (c, w) -> c * w }
 }
 enum class Role {
     Batsman,
@@ -95,39 +95,48 @@ fun main() {
     )
 
 
-    val player:Player = bumrah
+    val player:Player = bumrahIpl
 
     val battingCriteria = listOf(
-        normalize(player.battingAvg, 60.0),  // Bowling Average
-        normalize(player.totalRuns, 10000.0),  // Total Runs
-        normalize(135.0.coerceAtMost(100.0), 100.0),  // Strike Rate (Capped at 100)
+        normalize(player.battingAvg, 100.0),  // Batting Average
+       // normalize(player.totalRuns, 5000.0),  // Total Runs
+        normalize(player.strikeRate.coerceAtMost(200.0), 200.0),  // Strike Rate (Capped at 100)
         normalize(player.centuriesAndFifties, 30.0)  // Centuries and Fifties
     )
 
-    val battingWeightage = listOf(0.3, 0.3, 0.3, 0.1)
+    //val battingWeightage = listOf(0.3, 0.3, 0.3, 0.1)
+    val battingWeightage = listOf(0.4, 0.4, 0.2)
 
     var battingPoints = calculatePoints(battingCriteria, battingWeightage)
     if(player.role == Role.Bowler){
         battingPoints /= 2
     }
-    println("${player.name} T20 Batting Points: ${battingPoints.roundToInt()}")
+    if (player.isStarPlayer && player.role == Role.Batsman){
+        battingPoints += 10
+    }
+    println("${player.name} T20 Batting Points: ${battingPoints.roundToInt().coerceAtMost(99).coerceAtLeast(10)}")
 
 
 
     val bowlingCriteria = listOf(
         normalize(100 - player.bowlingAvg, 100.0),  // Bowling Average
-        normalize(player.totalWickets, 200.0),  // Total Wickets
+       // normalize(player.totalWickets, 200.0),  // Total Wickets
         normalize(36 - player.economyRate, 36.0),  // Economy Rate
         normalize(player.fiveWicketsHauls, 5.0)   // Five-Wicket Hauls
     )
 
-    val bowlingWeightage = listOf(0.35, 0.2, 0.35, 0.1)
+    //val bowlingWeightage = listOf(0.35, 0.2, 0.35, 0.1)
+    val bowlingWeightage = listOf(0.4, 0.4, 0.2)
 
     var bowlingPoints = calculatePoints(bowlingCriteria, bowlingWeightage)
     if (player.role == Role.Batsman){
         bowlingPoints /= 2
     }
-    println("${player.name} T20 Bowling Points: ${bowlingPoints.roundToInt()}")
+    if (player.isStarPlayer && player.role == Role.Bowler){
+        bowlingPoints += 10
+    }
+
+    println("${player.name} T20 Bowling Points: ${bowlingPoints.roundToInt().coerceAtMost(99).coerceAtLeast(10)}")
 
 }
 
