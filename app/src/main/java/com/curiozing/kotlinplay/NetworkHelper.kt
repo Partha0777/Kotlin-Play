@@ -8,7 +8,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkHelper {
 
     val baseUrl = "https://api.sampleapis.com/"
-    lateinit var retrofit: Retrofit
     fun getClient(): Retrofit {
         return Retrofit.Builder().client(OkHttpClient()).baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
