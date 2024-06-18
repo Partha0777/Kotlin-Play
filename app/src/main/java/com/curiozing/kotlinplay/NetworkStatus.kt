@@ -8,6 +8,7 @@ sealed class NetworkStatus(var data: String) {
 
         }
     }
+
     class Failure(var errorCode: Int, var errorMessage: String) : NetworkStatus("") {
         fun hello() {
 
