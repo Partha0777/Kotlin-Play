@@ -9,10 +9,10 @@ import kotlinx.coroutines.launch
 
 suspend fun main() {
 
-    var coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+    val coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
         println("Throwing Error: $throwable")
     }
-    val coroutineJob = CoroutineScope(Dispatchers.Default+coroutineExceptionHandler)
+    val coroutineJob = CoroutineScope(Dispatchers.Default + coroutineExceptionHandler)
 
     coroutineJob.launch {
         delay(100)
@@ -29,7 +29,8 @@ suspend fun main() {
     }
 
 
-    val supervisorJob = CoroutineScope(SupervisorJob() +Dispatchers.Default+coroutineExceptionHandler)
+    val supervisorJob =
+        CoroutineScope(SupervisorJob() + Dispatchers.Default + coroutineExceptionHandler)
 
     supervisorJob.launch {
         delay(100)
