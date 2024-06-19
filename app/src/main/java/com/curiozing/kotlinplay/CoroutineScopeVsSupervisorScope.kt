@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 
 suspend fun main() {
 
-    var coroutineJob = CoroutineScope(Dispatchers.Default)
+    val coroutineJob = CoroutineScope(Dispatchers.Default)
 
     coroutineJob.launch {
         delay(100)
@@ -25,7 +25,7 @@ suspend fun main() {
     }
 
 
-    var supervisorJob = CoroutineScope(SupervisorJob() +Dispatchers.Default)
+    val supervisorJob = CoroutineScope(SupervisorJob() +Dispatchers.Default)
 
     supervisorJob.launch {
         delay(100)
