@@ -1,5 +1,6 @@
 package com.curiozing.kotlinplay
 
+import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -8,7 +9,10 @@ import kotlinx.coroutines.launch
 
 suspend fun main() {
 
-    val coroutineJob = CoroutineScope(Dispatchers.Default)
+    var coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+        println("Throwing Error: $throwable")
+    }
+    val coroutineJob = CoroutineScope(Dispatchers.Default+coroutineExceptionHandler)
 
     coroutineJob.launch {
         delay(100)
@@ -25,7 +29,7 @@ suspend fun main() {
     }
 
 
-    val supervisorJob = CoroutineScope(SupervisorJob() +Dispatchers.Default)
+    val supervisorJob = CoroutineScope(SupervisorJob() +Dispatchers.Default+coroutineExceptionHandler)
 
     supervisorJob.launch {
         delay(100)
