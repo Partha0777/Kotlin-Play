@@ -28,7 +28,6 @@ suspend fun main() {
         println("Task 3")
     }
 
-
     val supervisorJob =
         CoroutineScope(SupervisorJob() + Dispatchers.Default + coroutineExceptionHandler)
 
