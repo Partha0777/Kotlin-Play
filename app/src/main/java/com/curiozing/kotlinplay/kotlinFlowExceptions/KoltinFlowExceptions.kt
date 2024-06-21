@@ -13,6 +13,9 @@ suspend fun main(){
         data().onCompletion { cause ->
             if (cause == null){
                 println("Completed Normally")
+            }else{
+                println("Completed with Exceptions")
+
             }
         }.collect{
             println(it)
