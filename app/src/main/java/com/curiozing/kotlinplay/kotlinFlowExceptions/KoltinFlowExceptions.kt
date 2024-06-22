@@ -8,18 +8,18 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.launch
 
-suspend fun main(){
+suspend fun main() {
     try {
         data().onCompletion { cause ->
-            if (cause == null){
+            if (cause == null) {
                 println("Completed Normally")
-            }else{
+            } else {
                 println("Completed with Exceptions")
             }
-        }.collect{
+        }.collect {
             println(it)
         }
-    }catch (e:Exception){
+    } catch (e: Exception) {
         print("Error is $e")
     }
 }
