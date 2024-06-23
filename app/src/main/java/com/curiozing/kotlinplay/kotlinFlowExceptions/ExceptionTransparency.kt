@@ -1,5 +1,6 @@
 package com.curiozing.kotlinplay.kotlinFlowExceptions
 
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
@@ -7,17 +8,18 @@ import kotlinx.coroutines.flow.flowOf
 
 suspend fun main() {
 
-   flow {
-       try {
-           emit("1")
-       }catch (e:Exception){
-           print("Exceptions $e")
-       }
-
-   }.collect{
+    eData().collect{
        throw Exception("Error")
        println("Hello $it")
    }
 
+}
+
+fun eData():Flow<String> = flow {
+    try {
+        emit("2")
+    }catch (e:Exception){
+        print("Exceptions $e")
+    }
 }
 
