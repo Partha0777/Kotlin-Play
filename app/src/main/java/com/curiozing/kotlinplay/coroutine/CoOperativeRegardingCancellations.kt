@@ -8,10 +8,22 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.yield
+import kotlin.math.min
 
 fun main() = runBlocking {
 
-    val job = launch(Dispatchers.IO) {
+    val list = listOf(1,2,3,4,5,6,7,8)
+    val splitList:MutableList<List<Int>> = mutableListOf()
+    val splitCount = 3
+    var i = 0
+    while (i < list.size){
+        val split:List<Int> = list.subList(i, min(i+splitCount,list.size))
+        i += splitCount
+        splitList.add(split)
+    }
+    println("Splited ---> $splitList")
+
+    val job = launch {
         repeat(5){
          /*  if (isActive){
                println("Its $it time")
