@@ -13,17 +13,22 @@ fun main() = runBlocking {
 
     val job = launch(Dispatchers.IO) {
         repeat(5){
-           if (isActive){
+         /*  if (isActive){
                println("Its $it time")
                Thread.sleep(300)
            }else{
                println("Coroutine is Cancelled")
                throw  CancellationException()
-           }
+           }*/
+
+            yield()
+            //ensureActive()
+            Thread.sleep(200)
+            println("Its $it time")
 
         }
     }
-    delay(200)
+    delay(300)
     job.cancel()
 
 }
