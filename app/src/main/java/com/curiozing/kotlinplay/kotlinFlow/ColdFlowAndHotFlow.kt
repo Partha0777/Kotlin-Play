@@ -9,13 +9,16 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.concurrent.Flow
 fun main() = runBlocking(Dispatchers.Default){
+
     launch {
         coldFlow().collect{
+            delay(200)
             println("Cold Collector 1 - $it")
         }
 
     }
 
+    delay(2000)
     launch {
         coldFlow().collect{
             println("Cold Collector 2 - $it")
@@ -27,17 +30,18 @@ fun main() = runBlocking(Dispatchers.Default){
 
     job.launch {
         repeat(5){
-            println("Hot FLow $it")
-            delay(200)
+            delay(500)
             hotFlow.emit("Hot $it")
         }
     }
+
 
     job.launch {
         hotFlow.collect{
             println("Hot Collector 1 - $it")
         }
     }
+    delay(2000)
 
     job.launch {
         hotFlow.collect{
@@ -45,7 +49,7 @@ fun main() = runBlocking(Dispatchers.Default){
         }
     }
 
-    delay(6000)
+    delay(10000)
 
 }
 
