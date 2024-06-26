@@ -15,26 +15,26 @@ fun main() {
 }
 
 
+class MediaFile(private val downloader: Downloader, private val player: Player) :
+    Downloader by downloader, Player by player
 
-class MediaFile(private val downloader: Downloader,private val player: Player):Downloader by downloader, Player by player
-
-interface Downloader{
+interface Downloader {
     fun download()
 }
 
-interface Player{
+interface Player {
     fun play()
 }
 
 
-class MediaDownloader(var file:String): Downloader{
+class MediaDownloader(var file: String) : Downloader {
     override fun download() {
         println("$file Downloading....")
     }
 
 }
 
-class MediaPlayer(var file:String) : Player{
+class MediaPlayer(var file: String) : Player {
     override fun play() {
         println("$file Playing....")
     }
