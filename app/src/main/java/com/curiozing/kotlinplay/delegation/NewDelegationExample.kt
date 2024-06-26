@@ -14,6 +14,18 @@ fun main() {
 
 }
 
+// Delegations
+
+/*class MediaFile1(private val downloader: Downloader, private val player: Player):Downloader,Player {
+    override fun download() {
+        downloader.download()
+    }
+
+    override fun play() {
+       player.play()
+    }
+
+}*/
 
 class MediaFile(private val downloader: Downloader, private val player: Player) :
     Downloader by downloader, Player by player
