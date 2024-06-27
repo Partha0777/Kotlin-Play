@@ -53,7 +53,7 @@ class MediaPlayer(var file: String) : Player {
 
 }
 
-sealed class SealedExample{
+sealed class SealedExample {
     data object Loading : SealedExample()
 
     data object Success : SealedExample()
