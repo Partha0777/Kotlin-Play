@@ -10,10 +10,11 @@ import kotlinx.coroutines.flow.replay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.concurrent.Flow
-fun main() = runBlocking(Dispatchers.Default){
+
+fun main() = runBlocking(Dispatchers.Default) {
 
     launch {
-        coldFlow().collect{
+        coldFlow().collect {
             delay(200)
             println("Cold Collector 1 - $it")
         }
@@ -22,7 +23,7 @@ fun main() = runBlocking(Dispatchers.Default){
 
     delay(2000)
     launch {
-        coldFlow().collect{
+        coldFlow().collect {
             println("Cold Collector 2 - $it")
         }
     }
@@ -33,7 +34,7 @@ fun main() = runBlocking(Dispatchers.Default){
     val stateFlow = MutableStateFlow(1)
 
     job.launch {
-        repeat(5){
+        repeat(5) {
             delay(500)
             hotFlow.emit("Hot $it")
         }
@@ -44,23 +45,23 @@ fun main() = runBlocking(Dispatchers.Default){
 
     job.launch {
         hotFlow
-            .collect{
-            println("Hot Collector 2 - $it")
-        }
+            .collect {
+                println("Hot Collector 2 - $it")
+            }
     }
 
     delay(5000)
 
     job.launch {
         hotFlow
-            .collect{
+            .collect {
                 println("Hot Collector 3 - $it")
             }
     }
 
 
     delay(10000)
-    stateFlow.collect{
+    stateFlow.collect {
         println("Sate Flow - ${it}")
     }
 
@@ -68,12 +69,11 @@ fun main() = runBlocking(Dispatchers.Default){
     delay(50)
 
 
-
 }
 
 
 fun coldFlow() = flow {
-    repeat(5){
+    repeat(5) {
         emit("Cold $it")
     }
 }
