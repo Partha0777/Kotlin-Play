@@ -4,7 +4,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.replay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import java.util.concurrent.Flow
@@ -28,28 +30,44 @@ fun main() = runBlocking(Dispatchers.Default){
     val job = CoroutineScope(Dispatchers.Default)
     val hotFlow = MutableSharedFlow<String>()
 
+    val stateFlow = MutableStateFlow(1)
+
     job.launch {
         repeat(5){
             delay(500)
             hotFlow.emit("Hot $it")
         }
     }
-
-
-    job.launch {
-        hotFlow.collect{
-            println("Hot Collector 1 - $it")
-        }
-    }
+    stateFlow.value = 2
     delay(2000)
+    stateFlow.value = 3
 
     job.launch {
-        hotFlow.collect{
+        hotFlow
+            .collect{
             println("Hot Collector 2 - $it")
         }
     }
 
+    delay(5000)
+
+    job.launch {
+        hotFlow
+            .collect{
+                println("Hot Collector 3 - $it")
+            }
+    }
+
+
     delay(10000)
+    stateFlow.collect{
+        println("Sate Flow - ${it}")
+    }
+
+
+    delay(50)
+
+
 
 }
 
