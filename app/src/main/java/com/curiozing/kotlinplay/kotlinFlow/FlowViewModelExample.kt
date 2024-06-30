@@ -28,7 +28,6 @@ class FlowViewModelExample : ViewModel() {
     }
 
 
-
     //Map is the intermediate operator and asLiveData is terminal Operator
     var uiState: LiveData<UiState> = currentTime.map {
         UiState.LoadTime(it) as UiState
@@ -38,7 +37,7 @@ class FlowViewModelExample : ViewModel() {
 
     }.asLiveData(Dispatchers.Default)
 
-    fun launchIn(){
+    fun launchIn() {
         currentTime.map {
             UiState.LoadTime(it) as UiState
         }.onStart {
@@ -47,9 +46,6 @@ class FlowViewModelExample : ViewModel() {
 
         }.launchIn(viewModelScope)
     }
-
-
-
 
 
 }
