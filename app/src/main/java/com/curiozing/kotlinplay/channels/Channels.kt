@@ -43,7 +43,7 @@ suspend fun main(): Unit = coroutineScope {
     }
 
     //Kotlin Coroutine example
-        val  coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+       /* val  coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
             println("Exception is $throwable")
         }
         val coroutineScopeJob = CoroutineScope(Dispatchers.Default+coroutineExceptionHandler)
@@ -62,7 +62,7 @@ suspend fun main(): Unit = coroutineScope {
         coroutineScopeJob.launch {
             delay(1000)
             println("Job 3")
-        }
+        }*/
 
 
 }
