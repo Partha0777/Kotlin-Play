@@ -42,27 +42,27 @@ suspend fun main(): Unit = coroutineScope {
         }
     }
 
-/*
-    val  coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
-        println("Exception is $throwable")
-    }
-    val coroutineScopeJob = CoroutineScope(Dispatchers.Default+coroutineExceptionHandler)
+    /*
+        val  coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+            println("Exception is $throwable")
+        }
+        val coroutineScopeJob = CoroutineScope(Dispatchers.Default+coroutineExceptionHandler)
 
-    coroutineScopeJob.launch {
-        delay(500)
-        println("Job 1")
-    }
+        coroutineScopeJob.launch {
+            delay(500)
+            println("Job 1")
+        }
 
-    coroutineScopeJob.launch {
-        delay(700)
-        throw RuntimeException()
-        println("Job 2")
-    }
+        coroutineScopeJob.launch {
+            delay(700)
+            throw RuntimeException()
+            println("Job 2")
+        }
 
-    coroutineScopeJob.launch {
-        delay(1000)
-        println("Job 3")
-    }*/
+        coroutineScopeJob.launch {
+            delay(1000)
+            println("Job 3")
+        }*/
 
 
 }
