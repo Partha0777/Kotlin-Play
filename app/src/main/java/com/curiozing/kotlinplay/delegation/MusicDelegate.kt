@@ -13,7 +13,13 @@ class MusicDelegate {
 
 class PlayMusic(val keysInstrument: KeysInstrument, val stringInstrument: StringInstrument) : KeysInstrument by keysInstrument, StringInstrument by stringInstrument
 
+class InPlayMusic() : Piano() {
 
+    override fun playKeys() {
+        super.playKeys()
+    }
+
+}
 
 interface KeysInstrument{
     fun playKeys();
