@@ -3,7 +3,7 @@ package com.curiozing.kotlinplay.parcelableAndSerializable
 import android.os.Parcel
 import android.os.Parcelable
 
-data class DataParcelable(var data: String?, var data2:Int):Parcelable {
+data class DataParcelable(var data: String?, var data2: Int) : Parcelable {
     constructor(parcel: Parcel) : this(
         parcel.readString(),
         parcel.readInt()
