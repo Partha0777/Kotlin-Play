@@ -53,4 +53,9 @@ class Violin : StringInstrument{
     }
 }
 
+sealed class TestSealed(){
+    class Success(data:String):TestSealed()
+    class Failure(data:String):TestSealed()
+}
+
 
