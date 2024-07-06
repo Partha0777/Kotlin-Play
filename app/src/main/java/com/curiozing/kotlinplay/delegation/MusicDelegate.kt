@@ -2,8 +2,8 @@ package com.curiozing.kotlinplay.delegation
 
 class MusicDelegate {
 
-    fun main(){
-        val music = PlayMusic(Piano(),Violin())
+    fun main() {
+        val music = PlayMusic(Piano(), Violin())
         music.playStrings()
         music.playKeys()
     }
@@ -11,7 +11,8 @@ class MusicDelegate {
 }
 
 
-class PlayMusic(val keysInstrument: KeysInstrument, val stringInstrument: StringInstrument) : KeysInstrument by keysInstrument, StringInstrument by stringInstrument
+class PlayMusic(val keysInstrument: KeysInstrument, val stringInstrument: StringInstrument) :
+    KeysInstrument by keysInstrument, StringInstrument by stringInstrument
 
 class InPlayMusic() : Piano() {
 
@@ -21,23 +22,23 @@ class InPlayMusic() : Piano() {
 
 }
 
-interface KeysInstrument{
+interface KeysInstrument {
     fun playKeys();
 }
 
 
-interface StringInstrument{
+interface StringInstrument {
     fun playStrings();
 }
 
-open class Piano : KeysInstrument{
+open class Piano : KeysInstrument {
     override fun playKeys() {
         println("Play Piano")
     }
 
 }
 
-class Guitar : StringInstrument{
+class Guitar : StringInstrument {
 
     override fun playStrings() {
         println("Play Guitar")
@@ -46,16 +47,16 @@ class Guitar : StringInstrument{
 }
 
 
-class Violin : StringInstrument{
+class Violin : StringInstrument {
 
     override fun playStrings() {
         println("Play Violin")
     }
 }
 
-sealed class TestSealed(){
-    class Success(data:String):TestSealed()
-    class Failure(data:String):TestSealed()
+sealed class TestSealed() {
+    class Success(data: String) : TestSealed()
+    class Failure(data: String) : TestSealed()
 }
 
 
