@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 object NetworkHelper {
 
     val baseUrl = "https://api.sampleapis.com/"
-    fun getClient(): Retrofit {
+    private fun getClient(): Retrofit {
         return Retrofit.Builder().client(OkHttpClient()).baseUrl(baseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory()).build()
