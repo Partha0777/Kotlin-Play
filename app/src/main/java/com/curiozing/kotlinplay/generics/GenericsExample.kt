@@ -10,8 +10,15 @@ fun main() {
         println("Found $it")
     }
 
-}
+    val data = genericFunc(intData){
+        it * 2
+    }
 
+    println("Data is $data")
+}
+fun <T,R> genericFunc(list: List<T>, func: (T) -> R) : List<R>{
+    return list.map { e -> func(e) }
+}
 class GenericsExample<T>(var list:List<T>) {
 
     fun find(value: T, found : (T) -> Unit ){
@@ -20,5 +27,7 @@ class GenericsExample<T>(var list:List<T>) {
         }
         found(data.first())
     }
+
+
 
 }
