@@ -2,7 +2,7 @@ package com.curiozing.kotlinplay.generics
 
 
 fun main() {
-
+    findTheCharCounts("hello world")
     val intData = listOf(1, 2, 3, 4, 5, 6, 7)
     val stringData = listOf("Kan", "Partha", "Sarathy", "Curio")
     val doubleData = listOf(2.4, 2.5, 3.4, 5.5)
@@ -20,6 +20,24 @@ fun main() {
 fun <T, R> genericFunc(list: List<T>, func: (T) -> R): List<R> {
     return list.map { e -> func(e) }
 }
+
+fun findTheCharCounts(data: String){
+
+    val charCounts = mutableMapOf<String,Int>()
+
+    data.forEach {
+
+        if(charCounts[it.toString()] != null){
+            charCounts[it.toString()] = charCounts[it.toString()]!!.plus(1)
+        }else{
+            charCounts[it.toString()] = 1
+        }
+    }
+
+    println(charCounts)
+
+}
+
 
 class GenericsExample<T>(var list: List<T>) {
 
