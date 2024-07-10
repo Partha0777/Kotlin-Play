@@ -2,7 +2,7 @@ package com.curiozing.kotlinplay.generics
 
 
 fun main() {
-    findTheCharCounts("hello world")
+    findTheCharCounts("Parthasarathi")
     val intData = listOf(1, 2, 3, 4, 5, 6, 7)
     val stringData = listOf("Kan", "Partha", "Sarathy", "Curio")
     val doubleData = listOf(2.4, 2.5, 3.4, 5.5)
@@ -25,12 +25,9 @@ fun findTheCharCounts(data: String){
 
     val charCounts = mutableMapOf<String,Int>()
 
-    data.forEach {
-
-        if(charCounts[it.toString()] != null){
-            charCounts[it.toString()] = charCounts[it.toString()]!!.plus(1)
-        }else{
-            charCounts[it.toString()] = 1
+    data.trim().lowercase().forEach {
+        if (!it.isWhitespace()){
+            charCounts[it.toString()] = charCounts.getOrDefault(it.toString(),0)+1
         }
     }
 
