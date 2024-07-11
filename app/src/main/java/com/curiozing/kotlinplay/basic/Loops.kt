@@ -10,4 +10,8 @@ fun main() {
     }
 
 
+    list1.forEach {
+        println(it)
+    }
+
 }
