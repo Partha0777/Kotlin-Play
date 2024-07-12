@@ -4,6 +4,7 @@ fun main() {
 
     val list = listOf(1,2,3,4,5)
     val list1 = listOf("c","d","e","f","g","a","b")
+    val map = mapOf(1 to "Partha", 2 to "Sarathy", 3 to "Kan")
 
     for (i in list){
         println(i)
@@ -25,6 +26,10 @@ fun main() {
     for ((index,value) in list.withIndex()){
         println("index is $index - Value $value")
 
+    }
+
+    for ((key,value) in map){
+        println("key is $key - Value is $value")
     }
 
 }
