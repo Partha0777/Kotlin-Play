@@ -22,4 +22,9 @@ fun main() {
         println(it)
     }
 
+    for ((index,value) in list.withIndex()){
+        println("index is $index - Value $value")
+
+    }
+
 }
