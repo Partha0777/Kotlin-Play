@@ -8,7 +8,6 @@ fun main() {
 
 
     for (i in list) {
-
         println(i)
     }
 
