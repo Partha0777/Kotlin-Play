@@ -34,8 +34,8 @@ fun main() {
         println("key is $key - Value is $value")
     }
 
-    for (index in list1.indices){
-        println("indices - "+list1[index])
+    for (index in list1.indices) {
+        println("indices - " + list1[index])
     }
 
 }
