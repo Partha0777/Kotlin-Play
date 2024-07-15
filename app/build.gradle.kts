@@ -71,6 +71,8 @@ dependencies {
 
     implementation ("androidx.room:room-runtime:2.6.1")
     implementation("androidx.room:room-common:2.6.1")
+    implementation(platform("androidx.compose:compose-bom:2023.08.00"))
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.08.00"))
     kapt ("androidx.room:room-compiler:2.6.1")
     implementation ("androidx.room:room-ktx:2.6.1")
 
