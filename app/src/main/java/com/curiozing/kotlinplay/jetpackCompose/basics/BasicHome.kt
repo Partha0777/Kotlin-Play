@@ -58,8 +58,7 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
            modifier = Modifier.fillMaxHeight().fillMaxWidth(),
            contentAlignment = Alignment.Center) {
            Text(
-               text = "Hello!",
-               modifier = Modifier,
+               text = "Hello !",
                textAlign = TextAlign.Center
            )
        }
