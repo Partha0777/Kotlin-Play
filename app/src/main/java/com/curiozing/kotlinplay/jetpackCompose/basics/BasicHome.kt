@@ -51,17 +51,22 @@ class BasicHome : ComponentActivity() {
 @Composable
 fun Greeting2(name: String, modifier: Modifier = Modifier) {
 
-    Card(shape = CircleShape, modifier = Modifier
-        .padding(20.dp)
-        .size(100.dp)) {
-       Box(
-           modifier = Modifier.fillMaxHeight().fillMaxWidth(),
-           contentAlignment = Alignment.Center) {
-           Text(
-               text = "Hello !",
-               textAlign = TextAlign.Center
-           )
-       }
+    Card(
+        shape = CircleShape, modifier = Modifier
+            .padding(20.dp)
+            .size(100.dp)
+    ) {
+        Box(
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "Hello !",
+                textAlign = TextAlign.Center
+            )
+        }
     }
 
 }
