@@ -34,7 +34,6 @@ class BasicHome : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             KotlinPlayTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier
                         .fillMaxHeight()
@@ -63,7 +62,7 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "Hello !",
+                text = "Click!",
                 textAlign = TextAlign.Center
             )
         }
@@ -75,6 +74,6 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview2() {
     KotlinPlayTheme {
-        Greeting2("Android")
+        Greeting2("Welcome")
     }
 }
