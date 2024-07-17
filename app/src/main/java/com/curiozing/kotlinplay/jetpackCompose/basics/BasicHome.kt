@@ -66,6 +66,18 @@ fun Greeting2(name: String, modifier: Modifier = Modifier) {
                 textAlign = TextAlign.Center
             )
         }
+        Box(
+            modifier = Modifier
+                .fillMaxHeight()
+                .fillMaxWidth(),
+            contentAlignment = Alignment.Center
+        ) {
+            Text(
+                text = "Click!",
+                textAlign = TextAlign.Center
+            )
+        }
+
     }
 
 }
