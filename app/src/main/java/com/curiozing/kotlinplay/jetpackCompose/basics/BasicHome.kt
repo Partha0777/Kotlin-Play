@@ -48,7 +48,7 @@ class BasicHome : ComponentActivity() {
 }
 
 @Composable
-fun Greeting2(name: String, modifier: Modifier = Modifier) {
+fun Greeting2(name: String) {
 
     Card(
         shape = CircleShape, modifier = Modifier
