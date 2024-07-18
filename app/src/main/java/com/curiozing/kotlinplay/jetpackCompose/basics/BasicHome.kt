@@ -34,17 +34,25 @@ class BasicHome : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             KotlinPlayTheme {
-                Surface(
-                    modifier = Modifier
-                        .fillMaxHeight()
-                        .fillMaxWidth(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
+                MyApp {
                     Greeting2("Android")
                 }
             }
         }
     }
+}
+
+@Composable
+fun MyApp(content : @Composable () -> Unit){
+    Surface(
+        modifier = Modifier
+            .fillMaxHeight()
+            .fillMaxWidth(),
+        color = MaterialTheme.colorScheme.background
+    ) {
+        content
+    }
+
 }
 
 @Composable
@@ -62,7 +70,7 @@ fun Greeting2(name: String) {
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "Click!",
+                text = "Click! $name",
                 textAlign = TextAlign.Center
             )
         }
