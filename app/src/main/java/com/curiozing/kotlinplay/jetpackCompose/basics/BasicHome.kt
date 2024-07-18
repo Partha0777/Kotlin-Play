@@ -43,7 +43,7 @@ class BasicHome : ComponentActivity() {
 }
 
 @Composable
-fun MyApp(content : @Composable () -> Unit){
+fun MyApp(content: @Composable () -> Unit) {
     Surface(
         modifier = Modifier
             .fillMaxHeight()
