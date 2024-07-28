@@ -12,6 +12,10 @@ fun main() {
     mediaFile.download()
     mediaFile.play()
 
+    var hpPrinter = HpPrinter()
+    var cannonPrinter = CannonPrinter()
+    val printFile = PrintFile(hpPrinter)
+
 }
 
 // Delegations
@@ -58,3 +62,23 @@ sealed class SealedExample {
 
     data object Success : SealedExample()
 }
+
+
+interface Printer{
+    fun print()
+}
+
+class  HpPrinter : Printer{
+    override fun print() {
+    }
+
+}
+
+class CannonPrinter: Printer{
+    override fun print() {
+    }
+
+}
+
+class PrintFile(private val printer: Printer) : Printer by printer
+
