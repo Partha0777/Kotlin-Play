@@ -6,7 +6,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import androidx.lifecycle.viewModelScope
 import com.curiozing.kotlinplay.MyApplication
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
@@ -55,6 +58,10 @@ class AndroidVersionViewModel : ViewModel() {
 
             uiState.value = UiState.Success(remoteData)
         }
+
+
+        var job = CoroutineScope(Dispatchers.Default )
+
 
     }
 

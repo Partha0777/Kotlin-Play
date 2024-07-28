@@ -20,14 +20,13 @@ suspend fun main() {
     }
     coroutineJob.launch {
         delay(200)
-        println("Task 2")
         throw RuntimeException()
+        println("Task 2")
     }
     coroutineJob.launch {
         delay(300)
         println("Task 3")
     }
-
     val supervisorJob =
         CoroutineScope(SupervisorJob() + Dispatchers.Default + coroutineExceptionHandler)
 
@@ -38,8 +37,8 @@ suspend fun main() {
 
     supervisorJob.launch {
         delay(200)
-        println("Super Task 2")
         throw RuntimeException()
+        println("Super Task 2")
     }
 
     supervisorJob.launch {
