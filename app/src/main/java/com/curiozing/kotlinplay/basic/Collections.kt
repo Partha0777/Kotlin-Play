@@ -13,4 +13,9 @@ fun main() {
     val indexedWords = words.mapIndexed { index, value -> "$index: $value" }
     println(indexedWords) // Output: [0: a, 1: bb, 2: ccc]
 
+   //mapNotNull
+    val numbers1 = listOf(1, 2, 3)
+    val evenOrNull = numbers1.mapNotNull { if (it % 2 == 0) it else null }
+    println(evenOrNull) // Output: [2]
+
 }
