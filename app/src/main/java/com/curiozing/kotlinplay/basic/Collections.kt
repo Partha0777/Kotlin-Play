@@ -8,4 +8,9 @@ fun main() {
     val squared = numbers.map { it * it }
     println(squared)
 
+    //mapIndexed
+    val words = listOf("a", "bb", "ccc")
+    val indexedWords = words.mapIndexed { index, value -> "$index: $value" }
+    println(indexedWords) // Output: [0: a, 1: bb, 2: ccc]
+
 }
