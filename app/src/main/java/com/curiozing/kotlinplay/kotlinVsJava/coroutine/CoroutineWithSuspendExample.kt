@@ -24,6 +24,7 @@ fun main() {
 
     }
 
+    println("Line outer")
     Thread.sleep(3000)
 }
 
