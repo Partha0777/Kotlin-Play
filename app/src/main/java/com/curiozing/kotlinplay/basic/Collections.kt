@@ -28,10 +28,9 @@ fun main() {
 
 
     val nestedList = listOf(1..2, 3..4)
-    val flatList = nestedList.flatMap { it }
+    val flatList = nestedList.flatMap { it.map { it*2 } }
     println(flatList) // Output: [1, 2, 3, 4]
 
 
-
-
 }
+
