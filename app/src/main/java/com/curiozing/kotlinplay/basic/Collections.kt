@@ -32,5 +32,9 @@ fun main() {
     println(flatList) // Output: [1, 2, 3, 4]
 
 
+    val flattenList = nestedList.flatten()
+    println(flattenList) // Output: [1, 2, 3, 4]
+
+
 }
 
