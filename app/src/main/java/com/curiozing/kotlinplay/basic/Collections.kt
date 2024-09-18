@@ -27,5 +27,11 @@ fun main() {
     println(indexedEvenLength) // Output: [1: bb]
 
 
+    val nestedList = listOf(1..2, 3..4)
+    val flatList = nestedList.flatMap { it }
+    println(flatList) // Output: [1, 2, 3, 4]
+
+
+
 
 }
