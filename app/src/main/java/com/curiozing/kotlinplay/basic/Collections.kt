@@ -4,7 +4,7 @@ fun main() {
 
     //* Mapping *//
 
-    //map
+   /* //map
     val numbers = listOf(1, 2, 3)
     val squared = numbers.map { it * it }
     println(squared)
@@ -23,7 +23,7 @@ fun main() {
     val evenOrNull = numbers1.mapNotNull { if (it % 2 == 0) it else null }
     println(evenOrNull)
     // Output: [2]
-
+    listOf(1, 2, 3).map { it * it }
 
     val indexedEvenLength = words.mapIndexedNotNull { index, value ->
         if (value.length % 2 == 0) "$index: $value" else null
@@ -41,6 +41,10 @@ fun main() {
     val flattenList = nestedList.flatten()
     println(flattenList)
     // Output: [1, 2, 3, 4]
+*/
+    println(listOf("Hello", "World").flatMap { it.toList() })
+
+    println(listOf(listOf(1, 2), listOf(3, 4)).flatten())
 
 }
 
