@@ -23,6 +23,7 @@ fun main() {
     val evenOrNull = numbers1.mapNotNull { if (it % 2 == 0) it else null }
     println(evenOrNull)
     // Output: [2]
+
     listOf(1, 2, 3).map { it * it }
 
     val indexedEvenLength = words.mapIndexedNotNull { index, value ->
