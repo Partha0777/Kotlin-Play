@@ -49,5 +49,9 @@ fun main() {
 
     println(listOf(listOf(1, 2), listOf(3, 4)).flatten())
 
+    val texts = listOf("Kotlin", "", "Programming", null, "Language")
+
+    val nonEmptyTexts = texts.mapNotNull { it?.takeIf { it.isNotEmpty() } }
+
 }
 
