@@ -19,26 +19,32 @@ fun main() {
 
 
     //mapNotNull
+    val texts = listOf("Kotlin", "", "Programming", null, "Language")
+    val nonEmptyTexts = texts.mapNotNull { it?.takeIf { it.isNotEmpty() } }
+    println(nonEmptyTexts)
+    // Output: [Kotlin,  , Programming, Language]
+
+
     val numbers1 = listOf(1, 2, 3)
     val evenOrNull = numbers1.mapNotNull { if (it % 2 == 0) it else null }
     println(evenOrNull)
     // Output: [2]
 
-    listOf(1, 2, 3).map { it * it }
-
+    //mapIndexedNotNull
     val indexedEvenLength = words.mapIndexedNotNull { index, value ->
         if (value.length % 2 == 0) "$index: $value" else null
     }
     println(indexedEvenLength)
     // Output: [1: bb]
 
-
+    //flatMap
     val nestedList = listOf(1..2, 3..4)
     val flatList = nestedList.flatMap { it -> it.map { it * 2 } }
     println(flatList)
     // Output: [1, 2, 3, 4]
 
 
+    //flatten
     val flattenList = nestedList.flatten()
     println(flattenList)
     // Output: [1, 2, 3, 4]
@@ -49,14 +55,13 @@ fun main() {
 
     println(listOf(listOf(1, 2), listOf(3, 4)).flatten())
 
-    val texts = listOf("Kotlin", "", "Programming", null, "Language")
-
-    val nonEmptyTexts = texts.mapNotNull { it?.takeIf { it.isNotEmpty() } }
 
 
     val nwords = listOf(1,2,3)
     val indexedNWords = nwords.mapIndexed { index, value -> index * value }
     println(indexedNWords)
+
+
 
 }
 
