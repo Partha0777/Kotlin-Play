@@ -49,19 +49,5 @@ fun main() {
     println(flattenList)
     // Output: [1, 2, 3, 4]
 
-
-    println(listOf("Hello", "World").flatMap { it.toList() })
-
-
-    println(listOf(listOf(1, 2), listOf(3, 4)).flatten())
-
-
-
-    val nwords = listOf(1,2,3)
-    val indexedNWords = nwords.mapIndexed { index, value -> index * value }
-    println(indexedNWords)
-
-
-
 }
 
