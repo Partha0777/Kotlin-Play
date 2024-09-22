@@ -53,5 +53,10 @@ fun main() {
 
     val nonEmptyTexts = texts.mapNotNull { it?.takeIf { it.isNotEmpty() } }
 
+
+    val nwords = listOf(1,2,3)
+    val indexedNWords = nwords.mapIndexed { index, value -> index * value }
+    println(indexedNWords)
+
 }
 
