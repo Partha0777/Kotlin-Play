@@ -49,5 +49,9 @@ fun main() {
     println(flattenList)
     // Output: [1, 2, 3, 4]
 
+    val filterList = listOf(1, 2, 3, 4).filter { it % 2 == 0 }
+    println(filterList)
+
+
 }
 
