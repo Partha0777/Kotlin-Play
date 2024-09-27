@@ -5,7 +5,7 @@ fun main() {
     //* Mapping *//
 
     //map
-    val numbers = listOf(1, 2, 3)
+ /*   val numbers = listOf(1, 2, 3)
     val squared = numbers.map { it * it }
     println(squared)
     // Output: [1, 4, 9]
@@ -50,7 +50,11 @@ fun main() {
     // Output: [1, 2, 3, 4]
 
     val filterList = listOf(1, 2, 3, 4).filter { it % 2 == 0 }
-    println(filterList)
+    println(filterList)*/
+
+
+  val filterNotList = listOf(1, 2, 3, 4).filterNot { it % 2 == 0 }
+    println(filterNotList)
 
 
 }
