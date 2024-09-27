@@ -60,6 +60,10 @@ fun main() {
     val mixedList = listOf(1, "two", 3.0, "four").filterIsInstance<String>()
     println(mixedList)
 
+    val filterIndex = listOf(1, 2, 3, 4).filterIndexed{ index, element -> index + element ==  5 }
+    println(filterIndex)
+
+
 
 }
 
