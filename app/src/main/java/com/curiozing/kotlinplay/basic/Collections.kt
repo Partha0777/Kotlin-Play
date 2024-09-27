@@ -53,8 +53,12 @@ fun main() {
     println(filterList)
 
 
-  val filterNotList = listOf(1, 2, 3, 4).filterNot { it % 2 == 0 }
+    val filterNotList = listOf(1, 2, 3, 4).filterNot { it % 2 == 0 }
     println(filterNotList)
+
+
+    val mixedList = listOf(1, "two", 3.0, "four").filterIsInstance<String>()
+    println(mixedList)
 
 
 }
