@@ -6,5 +6,13 @@ fun main() {
            it.split(" ")
        }
    }
-        print("data --> $data")
+
+    var data2 = calculate(listOf("1","2","3")){
+        "$it ooo"
+    }
+        print("data --> $data2")
+}
+
+fun <T,R> calculate(data:List<T>, func:(T) -> R):List<R>{
+    return data.map { func(it) }.toList()
 }
