@@ -70,9 +70,10 @@ fun main() {
     println(fold)
 
 
-    /* val texts = listOf(1, 2, 3).reduce{ total,next ->
+     val reduce = listOf(1, 2, 3).reduce{ total,next ->
          total+next
-     }*/
+     }
+    println(reduce)
 
   /*  val texts = listOf("Jack", "Robin", "John", "Rock").groupBy {
         it.first()
