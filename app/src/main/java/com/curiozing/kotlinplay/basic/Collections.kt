@@ -3,7 +3,6 @@ package com.curiozing.kotlinplay.basic
 fun main() {
 
     //* Mapping *//
-/*
     //map
     val numbers = listOf(1, 2, 3)
     val squared = numbers.map { it * it }
@@ -60,19 +59,19 @@ fun main() {
     val mixedList = listOf(1, "two", 3.0, "four").filterIsInstance<String>()
     println(mixedList)
 
-    val filterIndex = listOf(1, 2, 3, 4).filterIndexed{ index, element -> index + element ==  5 }
-    println(filterIndex)*/
+    val filterIndex = listOf(1, 2, 3, 4).filterIndexed { index, element -> index + element == 5 }
+    println(filterIndex)
 
 
-    val fold = listOf(1, 2, 3, 4).fold(0){ total,next ->
-        total+next
+    val fold = listOf(1, 2, 3, 4).fold(0) { total, next ->
+        total + next
     }
     println(fold)
 
 
-     val reduce = listOf(1, 2, 3).reduce{ total,next ->
-         total+next
-     }
+    val reduce = listOf(1, 2, 3).reduce { total, next ->
+        total + next
+    }
     println(reduce)
 
     val groupBy = listOf("Jack", "Robin", "John", "Rock").groupBy {
