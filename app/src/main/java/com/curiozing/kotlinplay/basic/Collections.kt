@@ -80,11 +80,8 @@ fun main() {
     }
     println(groupBy)
 
-   /* val data = listOf(1, 2, 3, 4).partition { it % 2 == 0 }
-    println(data) // [2, 4]
-*/
-
-    //println(texts)
+    val partition = listOf(1, 2, 3, 4).partition { it % 2 == 0 }
+    println(partition)
 
 }
 
