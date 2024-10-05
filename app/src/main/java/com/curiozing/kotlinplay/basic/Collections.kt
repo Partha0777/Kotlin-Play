@@ -75,9 +75,10 @@ fun main() {
      }
     println(reduce)
 
-  /*  val texts = listOf("Jack", "Robin", "John", "Rock").groupBy {
+    val groupBy = listOf("Jack", "Robin", "John", "Rock").groupBy {
         it.first()
-    }*/
+    }
+    println(groupBy)
 
    /* val data = listOf(1, 2, 3, 4).partition { it % 2 == 0 }
     println(data) // [2, 4]
