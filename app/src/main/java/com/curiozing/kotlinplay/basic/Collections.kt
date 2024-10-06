@@ -48,22 +48,27 @@ fun main() {
     println(flattenList)
     // Output: [1, 2, 3, 4]
 
+
     val filterList = listOf(1, 2, 3, 4).filter { it % 2 == 0 }
     println(filterList)
+
 
     // filterNotList
     val filterNotList = listOf(1, 2, 3, 4).filterNot { it % 2 == 0 }
     println(filterNotList)
+
 
     // filterIsInstance
     val mixedList = listOf(1, "two", 3.0, "four").filterIsInstance<String>()
     println(mixedList)
 
 
+    // filterIndexed
     val filterIndex = listOf(1, 2, 3, 4).filterIndexed { index, element -> index + element == 5 }
     println(filterIndex)
 
 
+    // fold
     val fold = listOf(1, 2, 3, 4).fold(0) { total, next ->
         total + next
     }
