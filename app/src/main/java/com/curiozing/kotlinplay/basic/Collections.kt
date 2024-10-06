@@ -75,16 +75,21 @@ fun main() {
     println(fold)
 
 
+    // reduce
     val reduce = listOf(1, 2, 3).reduce { total, next ->
         total + next
     }
     println(reduce)
 
+
+    // groupBy
     val groupBy = listOf("Jack", "Robin", "John", "Rock").groupBy {
         it.first()
     }
     println(groupBy)
 
+
+    // partition
     val partition = listOf(1, 2, 3, 4).partition { it % 2 == 0 }
     println(partition)
 
