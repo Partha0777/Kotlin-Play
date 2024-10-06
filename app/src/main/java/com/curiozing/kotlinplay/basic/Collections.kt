@@ -2,7 +2,6 @@ package com.curiozing.kotlinplay.basic
 
 fun main() {
 
-    //* Mapping *//
     //map
     val numbers = listOf(1, 2, 3)
     val squared = numbers.map { it * it }
@@ -36,6 +35,7 @@ fun main() {
     println(indexedEvenLength)
     // Output: [1: bb]
 
+
     //flatMap
     val nestedList = listOf(1..2, 3..4)
     val flatList = nestedList.flatMap { it -> it.map { it * 2 } }
@@ -49,47 +49,48 @@ fun main() {
     // Output: [1, 2, 3, 4]
 
 
+    //filter
     val filterList = listOf(1, 2, 3, 4).filter { it % 2 == 0 }
     println(filterList)
 
 
-    // filterNotList
+    //filterNotList
     val filterNotList = listOf(1, 2, 3, 4).filterNot { it % 2 == 0 }
     println(filterNotList)
 
 
-    // filterIsInstance
+    //filterIsInstance
     val mixedList = listOf(1, "two", 3.0, "four").filterIsInstance<String>()
     println(mixedList)
 
 
-    // filterIndexed
+    //filterIndexed
     val filterIndex = listOf(1, 2, 3, 4).filterIndexed { index, element -> index + element == 5 }
     println(filterIndex)
 
 
-    // fold
+    //fold
     val fold = listOf(1, 2, 3, 4).fold(0) { total, next ->
         total + next
     }
     println(fold)
 
 
-    // reduce
+    //reduce
     val reduce = listOf(1, 2, 3).reduce { total, next ->
         total + next
     }
     println(reduce)
 
 
-    // groupBy
+    //groupBy
     val groupBy = listOf("Jack", "Robin", "John", "Rock").groupBy {
         it.first()
     }
     println(groupBy)
 
 
-    // partition
+    //partition
     val partition = listOf(1, 2, 3, 4).partition { it % 2 == 0 }
     println(partition)
 
