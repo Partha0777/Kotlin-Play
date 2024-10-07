@@ -1,37 +1,38 @@
 package com.curiozing.kotlinplay.functions
 
 fun main() {
-    var person:Person? = null
+    var person: Person? = null
     person = Person("Kan", 29, 17782)
 
     val letExample = person?.let {
         it.age * 4
     }
-    print("let - " + letExample)
+    print("let - $letExample")
 
 
     val runExample = person.run {
         name = "Gus"
         this
     }
-    print("run - " + runExample)
+    print("run - $runExample")
 
 
     val alsoExample = person.also {
         it.age = 34
     }
-    print("also - " + alsoExample)
+    print("also - $alsoExample")
+
 
     val applyExample = person.apply {
         name = "Kou Kou"
     }
-    print("apply - " + applyExample)
+    print("apply - $applyExample")
 
 
-    val withExample = with(person){
+    val withExample = with(person) {
         name.length
     }
-    print("with - " + withExample)
+    print("with - $withExample")
 
 }
 
@@ -41,10 +42,10 @@ data class Person(
     var id: Long
 )
 
-class Fuss{
+class Fuss {
     var person: Person? = null
 
-    fun hello(){
+    fun hello() {
         val letExample = person?.let {
             it.age * 4
         }
