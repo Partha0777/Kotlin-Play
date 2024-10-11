@@ -5,6 +5,9 @@ fun main() {
     println(name)
 
 
+    val (data1, data2) = listOf("Kotlin", "Java", "C", "C++")
+    println(data2)
+
 
 }
 data class Person(
