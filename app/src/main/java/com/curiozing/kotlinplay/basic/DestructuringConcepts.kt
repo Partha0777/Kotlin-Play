@@ -1,7 +1,7 @@
 package com.curiozing.kotlinplay.basic
 
 fun main() {
-    val  (name, city) = Person("Partha","Chennai")
+    val (name, city) = Person("Partha", "Chennai")
     println(name)
 
 
@@ -9,11 +9,9 @@ fun main() {
     println(data2)
 
     val map = mapOf("key1" to "value1", "key2" to "value2")
-    for ((key, value) in map){
+    for ((key, value) in map) {
         println("$key - $value")
     }
 }
-data class Person(
-    val name:String,
-    val city:String
-)
+
+data class Person(val name: String, val city: String)
