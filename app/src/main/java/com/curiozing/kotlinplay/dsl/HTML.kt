@@ -10,7 +10,7 @@ class HTML {
         elements.add(body)
     }
 
-    fun dody(init: (String)-> Unit){
+    fun dody(init: (String) -> Unit) {
 
     }
 
@@ -39,21 +39,21 @@ fun html(init: HTML.() -> Unit): HTML {
     return html
 }
 
-fun json(init: JSON.() -> Unit){
+fun json(init: JSON.() -> Unit) {
 
 }
 
-class JSON(){
+class JSON() {
 
-    fun param(init: JSONBody.() -> Unit){
+    fun param(init: JSONBody.() -> Unit) {
 
     }
 
 }
 
-class JSONBody(){
+class JSONBody() {
 
-    fun printData(data:String){
+    fun printData(data: String) {
         print("Hello $data")
     }
 }
@@ -63,7 +63,7 @@ fun main() {
         body {
             json {
                 param {
-                   printData("woooo")
+                    printData("woooo")
                 }
             }
 
