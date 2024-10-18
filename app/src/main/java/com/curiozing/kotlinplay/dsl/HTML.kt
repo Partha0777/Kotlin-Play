@@ -10,10 +10,6 @@ class HTML {
         elements.add(body)
     }
 
-    fun dody(init: (String) -> Unit) {
-
-    }
-
     override fun toString() = elements.joinToString("\n")
 }
 
@@ -39,42 +35,13 @@ fun html(init: HTML.() -> Unit): HTML {
     return html
 }
 
-fun json(init: JSON.() -> Unit) {
-
-}
-
-class JSON() {
-
-    fun param(init: JSONBody.() -> Unit) {
-
-    }
-
-}
-
-class JSONBody() {
-
-    fun printData(data: String) {
-        print("Hello $data")
-    }
-}
-
 fun main() {
     val document = html {
         body {
-            json {
-                param {
-                    printData("woooo")
-                }
-            }
-
-
             p {
                 // Paragraph content can be added here
             }
-
-
         }
-
     }
 
     println(document)
