@@ -35,6 +35,9 @@ fun html(init: HTML.() -> Unit): HTML {
     return html
 }
 
+val names: List<String> = listOf("Alice", "Bob", "Charlie")
+typealias ErrorHandler = (Int) -> String
+
 fun main() {
     val document = html {
         body {
@@ -45,4 +48,15 @@ fun main() {
     }
 
     println(document)
+
+
+    val handleNetworkError: ErrorHandler = { code ->
+        when (code) {
+            404 -> "Not Found"
+            500 -> "Internal Server Error"
+            else -> "Unknown Error"
+        }
+    }
+
+    println(handleNetworkError(4904)) // Output: Not Found
 }
