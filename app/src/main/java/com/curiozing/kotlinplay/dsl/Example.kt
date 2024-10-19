@@ -7,13 +7,11 @@ class Home {
     }
 }
 
-
 fun main() {
     dodo {
         p("Partha")
     }
 }
-
 fun dodo(init: Home.() -> Unit) {
     val home = Home()
     home.init()
