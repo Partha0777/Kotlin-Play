@@ -95,9 +95,9 @@ fun main() {
     println(partition)
 
     //Zip
-    val list1 = listOf(1,2,3,4)
-    val list2 = listOf("a","b","c","d")
-    val zip =  list1.zip(list2)
+    val list1 = listOf(1, 2, 3, 4)
+    val list2 = listOf("a", "b", "c", "d")
+    val zip = list1.zip(list2)
     println(zip)
 
     //UnZip
