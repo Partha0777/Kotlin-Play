@@ -104,6 +104,17 @@ fun main() {
     val unZip = zip.unzip();
     println(unZip)
 
+    //reduceIndexed
+    val data =  list1.reduceIndexed{i,a,v ->
+        if (i == 2){
+            a
+        }else{
+            a+v
+        }
+
+    }
+    println(data)
+
 
 }
 
