@@ -99,6 +99,9 @@ fun main() {
     val zip =  list1.zip(list2)
     println(zip)
 
+    val unZip = zip.unzip();
+    println(unZip)
+
 
 }
 
