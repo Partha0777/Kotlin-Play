@@ -94,5 +94,11 @@ fun main() {
     val partition = listOf(1, 2, 3, 4).partition { it % 2 == 0 }
     println(partition)
 
+    val list1 = listOf(1,2,3,4)
+    val list2 = listOf("a","b","c","d")
+    val zip =  list1.zip(list2)
+    println(zip)
+
+
 }
 
