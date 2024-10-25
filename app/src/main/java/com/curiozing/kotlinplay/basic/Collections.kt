@@ -105,25 +105,27 @@ fun main() {
     println(unZip)
 
     //reduceIndexed
-    val reduceIndexed =  list1.reduceIndexed{i,a,v ->
-        if (i == 2){
+    val reduceIndexed = list1.reduceIndexed { i, a, v ->
+        if (i == 2) {
             a
-        }else{
-            a+v
+        } else {
+            a + v
         }
 
     }
     println(reduceIndexed)
 
     //foldIndexed
-    val foldIndexed =  list1.foldIndexed(5){i,a,v ->
-        if (i == 2){
+    val foldIndexed = list1.foldIndexed(5) { i, a, v ->
+        if (i == 2) {
             a
-        }else{
-            a+v
+        } else {
+            a + v
         }
 
     }
+
     println(foldIndexed)
+
 }
 
