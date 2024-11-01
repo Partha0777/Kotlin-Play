@@ -1,8 +1,36 @@
 package com.curiozing.kotlinplay.basic
 
+import android.util.Log
+import java.util.concurrent.Executors
+
+
 fun main() {
 
-    //map
+
+    val executorService = Executors.newFixedThreadPool(4) // Pool with 4 threads
+
+
+    for (i in 0..9) {
+        val taskId = i + 1 // Task identifier for logging
+        executorService.execute { // Task to run in the background
+            Log.d(
+                "TAG",
+                "Task " + taskId + " is running in: " + Thread.currentThread().name
+            )
+
+            // Simulate a time-consuming task
+            try {
+                Thread.sleep(1000) // Sleep for 1 second
+            } catch (e: InterruptedException) {
+                e.printStackTrace()
+            }
+            Log.d(
+                "TAG",
+                "Task " + taskId + " completed in: " + Thread.currentThread().name
+            )
+        }
+    }
+  /*  //map
     val numbers = listOf(1, 2, 3)
     val squared = numbers.map { it * it }
     println(squared)
@@ -125,7 +153,11 @@ fun main() {
 
     }
 
-    println(foldIndexed)
+    //println(foldIndexed)
+
+    val names = listOf("Alice", "Arun", "Aahaa", "Bob", "Brenda", "Clara", "Carl")
+    val groupedCounts = names.groupBy { it.length }
+    println(groupedCounts)*/
 
 }
 
