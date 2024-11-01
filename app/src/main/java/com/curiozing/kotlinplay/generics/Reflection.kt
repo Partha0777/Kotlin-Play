@@ -19,6 +19,9 @@ fun main() {
             println(it.call(userInstance,"Hello, I'm"))
         }
     }
+
+    println( createDynamicInstance("com.curiozing.kotlinplay.generics.Product"))
+
 }
 
 class User{
@@ -29,4 +32,16 @@ class User{
         return "$greet $name - $city"
     }
 
+}
+
+data class Product(val id:Int,val name:String)
+
+fun createDynamicInstance(className:String): Any?{
+    return try {
+        val kClass = Class.forName(className).kotlin
+        kClass.constructors.firstOrNull()?.call(1,"Laptop")
+
+    }catch (e:Exception){
+        e.printStackTrace()
+    }
 }
