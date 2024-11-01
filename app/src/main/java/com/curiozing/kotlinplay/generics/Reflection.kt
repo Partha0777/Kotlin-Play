@@ -2,7 +2,6 @@ package com.curiozing.kotlinplay.generics
 
 import kotlin.reflect.full.declaredFunctions
 import kotlin.reflect.full.declaredMemberProperties
-import kotlin.reflect.full.functions
 import kotlin.reflect.jvm.isAccessible
 
 fun main() {
@@ -14,14 +13,13 @@ fun main() {
     }
 
     // Jus think about "getUserDetails" come from API and also we can have some different value in features
-
-
     // Analytics
     val  dynamicAnalytics = "googleAnalytics"
     val dynamicMethod = userData.declaredFunctions.find { it.name == dynamicAnalytics}
     println(dynamicMethod?.call(userInstance,"Hello, I'm"))
 
 
+    // if we not not using reflection we need to do below if else condition for call this method dynamically and also it make more complex
    /* if(dynamicAnalytics == "googleAnalytics"){
         userInstance.googleAnalytics("")
     }else if (dynamicAnalytics == "flurryAnalytics"){
