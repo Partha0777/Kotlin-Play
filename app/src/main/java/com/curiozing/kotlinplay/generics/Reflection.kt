@@ -13,12 +13,23 @@ fun main() {
         println(it.get(User()))
     }
 
-    userData.declaredFunctions.forEach {
-        if (it.name == "getUserDetails"){
-            it.isAccessible = true
-            println(it.call(userInstance,"Hello, I'm"))
-        }
+    // Jus think about "getUserDetails" come from API and also we can have some different value in features
+
+
+    // Analytics
+    val  dynamicAnalytics = "googleAnalytics"
+    val dynamicMethod = userData.declaredFunctions.find { it.name == dynamicAnalytics}
+    println(dynamicMethod?.call(userInstance,"Hello, I'm"))
+
+
+   /* if(dynamicAnalytics == "googleAnalytics"){
+        userInstance.googleAnalytics("")
+    }else if (dynamicAnalytics == "flurryAnalytics"){
+        userInstance.flurryAnalytics("")
+    }else if(dynamicAnalytics == "fbAnalytics"){
+        userInstance.fbAnalytics("")
     }
+    */
 
     println( createDynamicInstance("com.curiozing.kotlinplay.generics.Product"))
 
@@ -28,8 +39,21 @@ class User{
     private val name = "Partha"
     private val city = "Chennai"
 
-    private fun getUserDetails(greet:String):String{
-        return "$greet $name - $city"
+    fun googleAnalytics(greet:String):String{
+
+        return "googleAnalytics - $greet $name - $city"
+    }
+
+    fun flurryAnalytics(greet:String):String{
+        return "flurryAnalytics - $greet $name - $city"
+    }
+
+    fun fbAnalytics(greet:String):String{
+        return "fbAnalytics - $greet $name - $city"
+    }
+
+    fun dataDogAnalytics(greet:String):String{
+        return "dataDogAnalytics - $greet $name - $city"
     }
 
 }
