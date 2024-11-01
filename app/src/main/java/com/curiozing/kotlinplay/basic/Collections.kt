@@ -30,7 +30,7 @@ fun main() {
             )
         }
     }
-  /*  //map
+    //map
     val numbers = listOf(1, 2, 3)
     val squared = numbers.map { it * it }
     println(squared)
@@ -157,7 +157,7 @@ fun main() {
 
     val names = listOf("Alice", "Arun", "Aahaa", "Bob", "Brenda", "Clara", "Carl")
     val groupedCounts = names.groupBy { it.length }
-    println(groupedCounts)*/
+    println(groupedCounts)
 
 }
 
