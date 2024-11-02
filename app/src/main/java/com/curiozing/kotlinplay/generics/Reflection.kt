@@ -38,7 +38,6 @@ class User {
     private val city = "Chennai"
 
     fun googleAnalytics(greet: String): String {
-
         return "googleAnalytics - $greet $name - $city"
     }
 
