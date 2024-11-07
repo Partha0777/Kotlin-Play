@@ -1,5 +1,7 @@
 package com.curiozing.kotlinplay.coroutine
 
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -38,22 +40,36 @@ fun main() = runBlocking {
     delay(300)
     job.cancel()*/
 
-    val value = coroutineScope {
-        val data = callApi()
-        launch {
-            saveToLocal(data)
+   coroutineScope {
+
+        val name = async {
+            callApi()
         }
+
+        val city = async {
+           callApi1()
+        }
+
+        val data = awaitAll(name,city)
+
+        saveToLocal("${data[0]} - ${data[1]}")
+
         println("Finished")
-        data
+
     }
 
-    println(value)
 }
 
 suspend fun callApi(): String {
     delay(2000)
-    println("Called API....")
+    println("Called API....0")
     return "Partha"
+}
+
+suspend fun callApi1(): String {
+    delay(2000)
+    println("Called API....1")
+    return "Chennai"
 }
 
 suspend fun saveToLocal(data: String) {
