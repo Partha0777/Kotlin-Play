@@ -40,20 +40,18 @@ fun main() = runBlocking {
     delay(300)
     job.cancel()*/
 
-   coroutineScope {
+    coroutineScope {
 
         val name = async {
             callApi()
         }
 
         val city = async {
-           callApi1()
+            callApi1()
         }
 
-        val data = awaitAll(name,city)
-
+        val data = awaitAll(name, city)
         saveToLocal("${data[0]} - ${data[1]}")
-
         println("Finished")
 
     }
