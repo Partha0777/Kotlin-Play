@@ -10,7 +10,7 @@ import kotlinx.coroutines.sync.withLock
 val mutex = Mutex()
 var balance = 5000 // Shared resource
 
-/*fun main(): Unit = runBlocking {
+fun main(): Unit = runBlocking {
     coroutineScope {
         launch {
             repeat(10) {
@@ -38,7 +38,8 @@ suspend fun getMoney(money: Int) {
             println("Not enough balance to deduct $money, Balance is $balance")
         }
     }
-}*/
+}
+/*
 fun main() = runBlocking {
     val counter = SharedCounter()
     val coroutineCount = 10
@@ -69,4 +70,4 @@ class SharedCounter {
             _value++
         }
     }
-}
+}*/
