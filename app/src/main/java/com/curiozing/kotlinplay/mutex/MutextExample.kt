@@ -37,5 +37,5 @@ suspend fun getMoney(money: Int) {
         } else {
             println("Not enough balance to deduct $money, Balance is $balance")
         }
-   }
+    }
 }
