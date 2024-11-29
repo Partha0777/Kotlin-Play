@@ -4,6 +4,7 @@ package com.curiozing.kotlinplay.classTypes
 fun main() {
     sendEmail(EmailId("rps@gmail.com"))
 }
+
 @JvmInline
 value class EmailId(val email: String) {
     fun isValid() = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$"
