@@ -20,3 +20,4 @@ fun sendEmail(emailId: EmailId): String {
         "Invalid email: ${emailId.email}"
     }
 }
+
