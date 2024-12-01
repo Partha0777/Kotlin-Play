@@ -52,7 +52,7 @@ class AnalyserViewModel : ViewModel() {
 
 
         }
-        val job = CoroutineScope(Dispatchers.Main+coroutineExceptionHandler)
+        val job = CoroutineScope(Dispatchers.Main + coroutineExceptionHandler)
 
         job.launch(coroutineExceptionHandler) {
 
@@ -84,7 +84,7 @@ class AnalyserViewModel : ViewModel() {
 
     }
 
-    private suspend fun getTime(){
+    private suspend fun getTime() {
 
     }
 
