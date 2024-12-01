@@ -9,7 +9,6 @@ fun main() {
 
     val executorService = Executors.newFixedThreadPool(4) // Pool with 4 threads
 
-
     for (i in 0..9) {
         val taskId = i + 1 // Task identifier for logging
         executorService.execute { // Task to run in the background
@@ -154,7 +153,6 @@ fun main() {
     }
 
     //println(foldIndexed)
-
     val names = listOf("Alice", "Arun", "Aahaa", "Bob", "Brenda", "Clara", "Carl")
     val groupedCounts = names.groupBy { it.length }
     println(groupedCounts)
