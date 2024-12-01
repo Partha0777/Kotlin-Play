@@ -19,8 +19,6 @@ fun main() {
             }
 
         }
-
-
     }
 
     Thread.sleep(500)
