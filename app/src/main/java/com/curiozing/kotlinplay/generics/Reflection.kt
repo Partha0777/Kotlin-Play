@@ -11,13 +11,11 @@ fun main() {
         it.isAccessible = true
         println(it.get(User()))
     }
-
     // Jus think about "getUserDetails" come from API and also we can have some different value in features
     // Analytics
     val dynamicAnalytics = "googleAnalytics"
     val dynamicMethod = userData.declaredFunctions.find { it.name == dynamicAnalytics }
     println(dynamicMethod?.call(userInstance, "Hello, I'm"))
-
 
     // if we not not using reflection we need to do below if else condition for call this method dynamically and also it make more complex
     /* if(dynamicAnalytics == "googleAnalytics"){
