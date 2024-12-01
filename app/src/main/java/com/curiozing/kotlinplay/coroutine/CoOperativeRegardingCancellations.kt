@@ -41,7 +41,6 @@ fun main() = runBlocking {
     job.cancel()*/
 
     coroutineScope {
-
         val name = async {
             callApi()
         }

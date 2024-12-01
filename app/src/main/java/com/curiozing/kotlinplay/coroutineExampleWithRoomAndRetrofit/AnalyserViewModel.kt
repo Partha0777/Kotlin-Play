@@ -24,7 +24,7 @@ class AnalyserViewModel : ViewModel() {
 
     fun factorial(input: Int, numberOfCoroutine: Int) {
 
-        var coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
+        val coroutineExceptionHandler = CoroutineExceptionHandler { coroutineContext, throwable ->
             println("Caught $throwable")
         }
 
