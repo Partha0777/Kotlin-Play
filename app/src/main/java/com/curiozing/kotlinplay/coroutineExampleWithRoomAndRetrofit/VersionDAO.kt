@@ -22,5 +22,4 @@ interface VersionDAO {
     @Query("SELECT * FROM androidVersion")
     suspend fun getVersions(): List<Version>
 
-
 }
