@@ -60,7 +60,7 @@ class AndroidVersionViewModel : ViewModel() {
         }
 
 
-        var job = CoroutineScope(Dispatchers.Default )
+        var job = CoroutineScope(Dispatchers.Default)
 
 
     }
