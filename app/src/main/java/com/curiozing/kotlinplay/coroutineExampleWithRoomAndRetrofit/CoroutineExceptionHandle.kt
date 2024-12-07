@@ -7,17 +7,15 @@ import kotlinx.coroutines.launch
 
 fun main() {
 
-    val coroutineException = CoroutineExceptionHandler { coroutineContext, throwable ->
+    val coroutineException = CoroutineExceptionHandler { _, throwable ->
         println("Coroutine Exception: $throwable")
     }
     val job = CoroutineScope(Job())
 
     job.launch {
-
         launch(coroutineException) {
             launch(coroutineException) {
             }
-
         }
     }
 
