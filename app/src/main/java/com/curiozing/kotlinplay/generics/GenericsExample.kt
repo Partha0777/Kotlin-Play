@@ -21,13 +21,13 @@ fun <T, R> genericFunc(list: List<T>, func: (T) -> R): List<R> {
     return list.map { e -> func(e) }
 }
 
-fun findTheCharCounts(data: String){
+fun findTheCharCounts(data: String) {
 
-    val charCounts = mutableMapOf<String,Int>()
+    val charCounts = mutableMapOf<String, Int>()
 
     data.trim().lowercase().forEach {
-        if (!it.isWhitespace()){
-            charCounts[it.toString()] = charCounts.getOrDefault(it.toString(),0)+1
+        if (!it.isWhitespace()) {
+            charCounts[it.toString()] = charCounts.getOrDefault(it.toString(), 0) + 1
         }
     }
 
