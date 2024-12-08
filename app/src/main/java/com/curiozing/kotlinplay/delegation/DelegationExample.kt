@@ -15,11 +15,9 @@ interface Music {
 class HeadPhone : Music {
 
     override fun play() {
-        TODO("Not yet implemented")
     }
 
     override fun pause() {
-        TODO("Not yet implemented")
     }
 
     fun pauseByButton() {
@@ -30,11 +28,9 @@ class HeadPhone : Music {
 
 class Speaker : Music {
     override fun play() {
-        TODO("Not yet implemented")
     }
 
     override fun pause() {
-        TODO("Not yet implemented")
     }
 
 }
