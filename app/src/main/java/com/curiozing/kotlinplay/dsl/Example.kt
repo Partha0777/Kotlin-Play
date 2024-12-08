@@ -12,6 +12,7 @@ fun main() {
         p("Partha")
     }
 }
+
 fun dodo(init: Home.() -> Unit) {
     val home = Home()
     home.init()
