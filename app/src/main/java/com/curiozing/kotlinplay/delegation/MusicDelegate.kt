@@ -11,7 +11,7 @@ class MusicDelegate {
 }
 
 
-class PlayMusic(val keysInstrument: KeysInstrument, val stringInstrument: StringInstrument) :
+class PlayMusic(private val keysInstrument: KeysInstrument, private val stringInstrument: StringInstrument) :
     KeysInstrument by keysInstrument, StringInstrument by stringInstrument
 
 class InPlayMusic() : Piano() {
