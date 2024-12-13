@@ -15,3 +15,7 @@ class Circle: Shape(){}
 fun <T : Shape> genericFunctionCustomClass(data:T):T{
     return data
 }
+
+fun <T : Any> genericFunctionAnyType(data:T):T{
+    return data
+}
