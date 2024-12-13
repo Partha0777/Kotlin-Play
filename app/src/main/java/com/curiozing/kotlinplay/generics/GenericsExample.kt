@@ -30,7 +30,6 @@ fun findTheCharCounts(data: String) {
             charCounts[it.toString()] = charCounts.getOrDefault(it.toString(), 0) + 1
         }
     }
-
     println(charCounts)
 
 }
