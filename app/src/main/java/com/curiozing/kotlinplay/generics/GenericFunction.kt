@@ -8,3 +8,10 @@ fun <T : Number> genericFunction(data:T):T{
 fun <T : CharSequence> genericFunctionString(data:T):T{
     return data
 }
+
+open class Shape{}
+class Circle: Shape(){}
+
+fun <T : Shape> genericFunctionCustomClass(data:T):T{
+    return data
+}
