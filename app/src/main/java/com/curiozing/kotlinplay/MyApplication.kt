@@ -29,6 +29,7 @@ class MyApplication : Application() {
             AppDatabase::class.java,
             "androidVersionDB"
         ).build()
+
         ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifecycleListener())
     }
 
