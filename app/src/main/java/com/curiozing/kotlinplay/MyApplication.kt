@@ -25,9 +25,7 @@ class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         db = Room.databaseBuilder(
-            this.applicationContext,
-            AppDatabase::class.java,
-            "androidVersionDB"
+            this.applicationContext, AppDatabase::class.java, "androidVersionDB"
         ).build()
 
         ProcessLifecycleOwner.get().lifecycle.addObserver(AppLifecycleListener())
