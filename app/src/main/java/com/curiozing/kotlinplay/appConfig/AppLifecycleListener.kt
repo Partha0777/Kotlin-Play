@@ -2,7 +2,6 @@ package com.curiozing.kotlinplay.appConfig
 
 import android.util.Log
 import androidx.lifecycle.DefaultLifecycleObserver
-import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.LifecycleOwner
 
 class AppLifecycleListener : DefaultLifecycleObserver{
