@@ -14,13 +14,7 @@ fun putDogInCage(cage: Cage<Dog>) {
 fun main() {
     val animalCage: Cage<Animal> = Cage<Animal>()
     putDogInCage(animalCage)
+
 }
 
-open class Car()
-class Honda : Car()
-class BMW : Car()
-
-class ShowRoom<out T>(val car:T){
-    fun getCar() = car
-}
 
