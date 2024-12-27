@@ -20,8 +20,8 @@ fun readFromBox(box: Box<Animal>) {
 fun main() {
     val dogBox: Box<Dog> = Box(Dog())
     readFromBox(dogBox)
-    var hondaShowroom : ShowRoom<Honda> = ShowRoom(Honda())
-    var bmwShowroom : ShowRoom<BMW> = ShowRoom(BMW())
+    var hondaShowroom: ShowRoom<Honda> = ShowRoom(Honda())
+    var bmwShowroom: ShowRoom<BMW> = ShowRoom(BMW())
 
     getToCarShowroom(hondaShowroom)
 }
@@ -30,11 +30,11 @@ open class Car()
 class Honda : Car()
 class BMW : Car()
 
-class ShowRoom<out T>(private val car:T){
+class ShowRoom<out T>(private val car: T) {
     fun getCar() = car
 }
 
-fun getToCarShowroom(showRoom: ShowRoom<Car>){
+fun getToCarShowroom(showRoom: ShowRoom<Car>) {
     println(showRoom.getCar())
 }
 
