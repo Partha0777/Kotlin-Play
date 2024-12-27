@@ -24,13 +24,13 @@ open class Laptop()
 class AppleMac : Laptop()
 class SamsungNoteBook : Laptop()
 
-class LaptopShowRoom<in T>{
-    fun get(laptop:T){
+class LaptopShowRoom<in T> {
+    fun get(laptop: T) {
         println("Got laptop")
     }
 }
 
-fun gotLaptopShowRoom(laptop:LaptopShowRoom<AppleMac>) {
+fun gotLaptopShowRoom(laptop: LaptopShowRoom<AppleMac>) {
     laptop.get(AppleMac())
 }
 
