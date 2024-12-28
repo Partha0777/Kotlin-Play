@@ -1,6 +1,9 @@
 package com.curiozing.kotlinplay.generics
 
 
+class SystemTech<T>(var value:T)
+
+
 class Cage<in T> {
     fun put(item: T) {
         println("Putting ${item!!::class.simpleName} in the cage")
@@ -17,6 +20,9 @@ fun main() {
 
     val genericLaptop: LaptopShowRoom<Laptop> = LaptopShowRoom<Laptop>()
     gotLaptopShowRoom(genericLaptop)
+
+    var laptop :SystemTech<Laptop> = SystemTech(Laptop())
+    laptop = SystemTech(AppleMac())
 }
 
 open class Laptop()
