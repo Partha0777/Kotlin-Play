@@ -24,6 +24,9 @@ fun main() {
     var bmwShowroom: ShowRoom<BMW> = ShowRoom(BMW())
 
     getToCarShowroom(hondaShowroom)
+
+    val out = OutClass("string")
+    val ref: OutClass<Any> = out
 }
 
 open class Car()
@@ -36,5 +39,12 @@ class ShowRoom<out T>(private val car: T) {
 
 fun getToCarShowroom(showRoom: ShowRoom<Car>) {
     println(showRoom.getCar())
+}
+
+
+class OutClass<out T>(val value: T) {
+    fun get(): T {
+        return value
+    }
 }
 
