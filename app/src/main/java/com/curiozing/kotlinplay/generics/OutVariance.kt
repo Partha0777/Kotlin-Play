@@ -48,3 +48,8 @@ class OutClass<out T>(val value: T) {
     }
 }
 
+val y: MyClass<Any> = MyClass<String>() // Works since String is a subtype of Any
+//val z: MyClass<String> = MyClass<Any>() // Error since Any is a supertype of String
+
+class MyClass<out T>
+
