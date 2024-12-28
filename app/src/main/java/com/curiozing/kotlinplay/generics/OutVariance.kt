@@ -47,9 +47,15 @@ class OutClass<out T>(val value: T) {
         return value
     }
 }
+//Covariance
+val a: MyClassCv<Any> = MyClassCv<String>() // Works since String is a subtype of Any
+val b: MyClassCv<String> = MyClassCv<Any>() // Error since Any is a supertype of String
+class MyClassCv<out T>
 
-val y: MyClass<Any> = MyClass<String>() // Works since String is a subtype of Any
-//val z: MyClass<String> = MyClass<Any>() // Error since Any is a supertype of String
 
-class MyClass<out T>
+//Contracovariance
+val y: MyClassCt<Any> = MyClassCt<String>() // Error since String is a subtype of Any
+val z: MyClassCt<String> = MyClassCt<Any>() // Works since Any is a Super type of String
+
+class MyClassCt<in T>
 
