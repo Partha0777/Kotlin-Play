@@ -47,8 +47,10 @@ class OutClass<out T>(val value: T) {
         return value
     }
 }
+
 //Covariance
 val a: MyClassCv<Any> = MyClassCv<String>() // Works since String is a subtype of Any
+
 //val b: MyClassCv<String> = MyClassCv<Any>() // Error since Any is a supertype of String
 class MyClassCv<out T>
 
