@@ -23,6 +23,10 @@ fun main() {
 
     var laptop :SystemTech<Laptop> = SystemTech(Laptop())
     laptop = SystemTech(AppleMac())
+
+    val inClassObject: InClass<Number> = InClass()
+    val ref: InClass<Int> = inClassObject
+
 }
 
 open class Laptop()
@@ -38,5 +42,12 @@ class LaptopShowRoom<in T> {
 
 fun gotLaptopShowRoom(laptop: LaptopShowRoom<AppleMac>) {
     laptop.get(AppleMac())
+}
+
+
+class InClass<in T> {
+    fun toString(value: T): String {
+        return value.toString()
+    }
 }
 
