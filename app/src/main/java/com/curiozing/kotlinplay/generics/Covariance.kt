@@ -49,6 +49,7 @@ class OutClass<out T>(val value: T) {
 }
 
 
+
 //Simple example for both In and Out
 //Covariance
 val a: MyClassCv<Any> = MyClassCv<String>() // Works since String is a subtype of Any
