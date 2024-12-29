@@ -30,7 +30,6 @@ fun putDogInCage(cage: Cage<Dog>) {
 }
 
 
-
 open class Laptop()
 
 class AppleMac : Laptop()
