@@ -26,7 +26,6 @@ fun main() {
      }
      */
     println(createDynamicInstance("com.curiozing.kotlinplay.generics.Product"))
-
 }
 
 class User {
