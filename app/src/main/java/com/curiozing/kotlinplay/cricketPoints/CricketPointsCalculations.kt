@@ -127,7 +127,6 @@ fun main() {
         }"
     )
 
-
     val bowlingCriteria = listOf(
         normalize(100 - player.bowlingAvg, 100.0),  // Bowling Average
         // normalize(player.totalWickets, 200.0),  // Total Wickets
