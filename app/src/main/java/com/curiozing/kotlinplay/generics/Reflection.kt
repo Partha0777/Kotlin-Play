@@ -48,7 +48,6 @@ class User {
     fun dataDogAnalytics(greet: String): String {
         return "dataDogAnalytics - $greet $name - $city"
     }
-
 }
 
 data class Product(val id: Int, val name: String)
