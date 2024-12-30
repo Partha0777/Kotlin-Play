@@ -16,7 +16,6 @@ fun main() {
     val dynamicAnalytics = "googleAnalytics"
     val dynamicMethod = userData.declaredFunctions.find { it.name == dynamicAnalytics }
     println(dynamicMethod?.call(userInstance, "Hello, I'm"))
-
     // if we not not using reflection we need to do below if else condition for call this method dynamically and also it make more complex
     /* if(dynamicAnalytics == "googleAnalytics"){
          userInstance.googleAnalytics("")
@@ -26,7 +25,6 @@ fun main() {
          userInstance.fbAnalytics("")
      }
      */
-
     println(createDynamicInstance("com.curiozing.kotlinplay.generics.Product"))
 
 }
