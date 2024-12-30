@@ -20,11 +20,9 @@ fun readFromBox(box: Box<Animal>) {
 fun main() {
     val dogBox: Box<Dog> = Box(Dog())
     readFromBox(dogBox)
-    var hondaShowroom: ShowRoom<Honda> = ShowRoom(Honda())
+    val hondaShowroom: ShowRoom<Honda> = ShowRoom(Honda())
     var bmwShowroom: ShowRoom<BMW> = ShowRoom(BMW())
-
     getToCarShowroom(hondaShowroom)
-
     val out = OutClass("string")
     val ref: OutClass<Any> = out
 }
