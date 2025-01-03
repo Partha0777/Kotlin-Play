@@ -1,6 +1,7 @@
 package com.curiozing.kotlinplay.classTypes
 
 class OuterClassIn {
+
     private var name: String = "Ashu"
 
     inner class InnerClass {
