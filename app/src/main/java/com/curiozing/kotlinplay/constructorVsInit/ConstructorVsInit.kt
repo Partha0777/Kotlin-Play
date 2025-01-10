@@ -2,13 +2,15 @@ package com.curiozing.kotlinplay.constructorVsInit
 
 
 fun main() {
-   // Person("Hello",23)
-    User("Hello",23)
+    // Person("Hello",23)
+    User("Hello", 23)
 }
+
 class Person {
-    private var name:String? = null
-    private var age:Int? = null
-    constructor(name:String, age:Int){
+    private var name: String? = null
+    private var age: Int? = null
+
+    constructor(name: String, age: Int) {
         this.name = name
         this.age = age
         println("Constructor is Called")
@@ -17,6 +19,7 @@ class Person {
     init {
         println("Init 1 is Called")
     }
+
     init {
         println("Init 2 is Called")
     }
