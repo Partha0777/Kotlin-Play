@@ -26,7 +26,7 @@ class Person {
 
 
 class User(val name: String) {
-    var age: Int = 0
+    private var age: Int = 0
 
     // Init block will execute before Secondary Constructor.
     init {
