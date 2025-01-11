@@ -31,7 +31,7 @@ class User(val name: String) {
 
     // Init block will execute before Secondary Constructor.
     init {
-        println("Init block called")
+        println("Init block called $name")
     }
 
     // Secondary Constructor
