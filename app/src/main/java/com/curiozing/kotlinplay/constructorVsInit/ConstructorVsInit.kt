@@ -33,8 +33,7 @@ class User(val name: String) {
         println("Init block called $name")
     }
 
-    // Secondary Constructor
-    //– Runs after the primary constructor and all init blocks.
+    // Secondary Constructor – Runs after the primary constructor and all init blocks.
     constructor(name: String, age: Int) : this(name) {
         println("Secondary constructor called")
         this.age = age
