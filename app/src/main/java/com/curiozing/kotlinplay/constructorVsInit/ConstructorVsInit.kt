@@ -2,7 +2,6 @@ package com.curiozing.kotlinplay.constructorVsInit
 
 
 fun main() {
-    // Person("Hello",23)
     User("Hello", 23)
 }
 
