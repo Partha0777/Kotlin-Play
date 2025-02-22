@@ -5,27 +5,26 @@ import kotlin.coroutines.Continuation
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
 
-suspend fun main(){
+suspend fun main() {
     val name = fetchUser()
     storeUser(name)
     MainContinuation(null).resumeWith(Result.success(Unit))
 
 }
 
-suspend fun fetchUser() : String{
+suspend fun fetchUser(): String {
     println("Fetching User...")
     delay(500)
     return "Partha"
 }
 
-suspend fun storeUser(name:String){
+suspend fun storeUser(name: String) {
     delay(500)
     println("$name stored")
 }
 
 
-
-class MainContinuation( val completion: Continuation<Unit>?) : Continuation<Unit> {
+class MainContinuation(val completion: Continuation<Unit>?) : Continuation<Unit> {
     var state = 0 // Represents the current execution state
     var result: Any? = null // Stores intermediate results
 
@@ -38,11 +37,13 @@ class MainContinuation( val completion: Continuation<Unit>?) : Continuation<Unit
                 state = 1 // Move to fetching state
                 fetchUserContinuation(this)
             }
+
             1 -> {
                 val name = result as String // Retrieve stored result
                 state = 2 // Move to storing state
                 storeUserContinuation(name, this)
             }
+
             2 -> {
                 println("Execution completed")
             }
