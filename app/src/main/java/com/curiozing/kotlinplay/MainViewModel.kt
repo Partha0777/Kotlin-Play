@@ -18,6 +18,9 @@ import java.time.Duration
 class MainViewModel : ViewModel() {
 
     fun getDrinks() {
+        viewModelScope.launch {
+
+        }
         CoroutineScope(Dispatchers.Main.immediate).launch {
             println("Viewmodel called first")
             launch {
