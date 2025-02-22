@@ -9,7 +9,6 @@ suspend fun main() {
     val name = fetchUser()
     storeUser(name)
     MainContinuation(null).resumeWith(Result.success(Unit))
-
 }
 
 suspend fun fetchUser(): String {
