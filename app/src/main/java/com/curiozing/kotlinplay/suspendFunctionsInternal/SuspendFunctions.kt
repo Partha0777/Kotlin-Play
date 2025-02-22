@@ -22,7 +22,6 @@ suspend fun storeUser(name: String) {
     println("$name stored")
 }
 
-
 class MainContinuation(val completion: Continuation<Unit>?) : Continuation<Unit> {
     var state = 0 // Represents the current execution state
     var result: Any? = null // Stores intermediate results
