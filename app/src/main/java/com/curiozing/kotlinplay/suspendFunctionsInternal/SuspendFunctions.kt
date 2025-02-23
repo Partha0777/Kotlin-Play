@@ -4,6 +4,7 @@ import kotlinx.coroutines.delay
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
+import kotlin.coroutines.resume
 
 suspend fun main() {
     val name = fetchUser()
@@ -69,3 +70,4 @@ fun delay(time: Long, callback: (Result<Unit>) -> Unit) {
     Thread.sleep(time) // Simulate suspension
     callback(Result.success(Unit))
 }
+
