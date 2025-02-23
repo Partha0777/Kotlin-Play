@@ -20,8 +20,8 @@ suspend fun main() {
     }
     coroutineJob.launch {
         delay(200)
-        throw RuntimeException()
         println("Task 2")
+        throw RuntimeException()
     }
     coroutineJob.launch {
         delay(300)
