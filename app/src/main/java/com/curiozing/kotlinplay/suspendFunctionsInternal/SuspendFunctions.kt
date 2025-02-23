@@ -4,7 +4,6 @@ import kotlinx.coroutines.delay
 import kotlin.coroutines.Continuation
 import kotlin.coroutines.CoroutineContext
 import kotlin.coroutines.EmptyCoroutineContext
-import kotlin.coroutines.resume
 
 suspend fun main() {
     val name = fetchUser()
