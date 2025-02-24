@@ -4,7 +4,6 @@ class OuterClassIn {
 
     private var name: String = "Ashu"
 
-
     inner class InnerClass {
         var description: String = "code inside inner class"
         private var id: Int = 101
