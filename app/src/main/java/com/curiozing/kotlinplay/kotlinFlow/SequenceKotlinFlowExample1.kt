@@ -12,7 +12,7 @@ fun main() {
 
 fun palindrome(string: String){
 
-    var data =  string.lowercase().reversed()
+    val data =  string.lowercase().reversed()
 
     if (data == string.lowercase()){
         println("It's Palindrome")
