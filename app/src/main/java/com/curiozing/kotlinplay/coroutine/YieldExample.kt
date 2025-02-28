@@ -12,7 +12,7 @@ suspend fun downloadFile(url: String, delay: Long): String {
 }
 
 
-fun main(): Unit = runBlocking {
+/*fun main(): Unit = runBlocking {
 
         launch {
                 for (i in 1..5) {
@@ -26,4 +26,11 @@ fun main(): Unit = runBlocking {
                 }
         }
 
+}*/
+
+
+fun main() {
+        val numbers = listOf<String>("10","20","30")
+
+        numbers.forEach { println(it) }
 }
