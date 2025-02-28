@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 suspend fun main(): Unit = coroutineScope {
 
     val channel = produce {
-
         send(10)
         delay(1000)
 
