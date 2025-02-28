@@ -9,9 +9,9 @@ import kotlinx.coroutines.withContext
 import kotlinx.coroutines.yield
 
 suspend fun downloadFile(url: String, delay: Long): String {
-        println("Downloading $url...")
-        delay(delay)
-        return "Downloaded $url"
+    println("Downloading $url...")
+    delay(delay)
+    return "Downloaded $url"
 }
 
 
@@ -33,24 +33,24 @@ suspend fun downloadFile(url: String, delay: Long): String {
 
 
 @OptIn(ExperimentalCoroutinesApi::class)
-suspend  fun main() {
-        val singleThreadedDispatcher = Dispatchers.Default.limitedParallelism(1)
-        withContext(singleThreadedDispatcher) {
-                launch {
-                        repeat(5) {
-                                updateProgressBar(it, "A")
-                                yield()
-                        }
-                }
-                launch {
-                        repeat(5) {
-                                updateProgressBar(it, "B")
-                                yield()
-                        }
-                }
+suspend fun main() {
+    val singleThreadedDispatcher = Dispatchers.Default.limitedParallelism(1)
+    withContext(singleThreadedDispatcher) {
+        launch {
+            repeat(5) {
+                updateProgressBar(it, "A")
+                yield()
+            }
         }
+        launch {
+            repeat(5) {
+                updateProgressBar(it, "B")
+                yield()
+            }
+        }
+    }
 }
 
 fun updateProgressBar(value: Int, marker: String) {
-        print(marker)
+    print(marker)
 }
