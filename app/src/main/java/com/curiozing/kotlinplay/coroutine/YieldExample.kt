@@ -1,8 +1,11 @@
 package com.curiozing.kotlinplay.coroutine;
 
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import kotlinx.coroutines.yield
 
 suspend fun downloadFile(url: String, delay: Long): String {
@@ -29,8 +32,25 @@ suspend fun downloadFile(url: String, delay: Long): String {
 }*/
 
 
-fun main() {
-        val numbers = listOf<String>("10","20","30")
+@OptIn(ExperimentalCoroutinesApi::class)
+suspend  fun main() {
+        val singleThreadedDispatcher = Dispatchers.Default.limitedParallelism(1)
+        withContext(singleThreadedDispatcher) {
+                launch {
+                        repeat(5) {
+                                updateProgressBar(it, "A")
+                                yield()
+                        }
+                }
+                launch {
+                        repeat(5) {
+                                updateProgressBar(it, "B")
+                                yield()
+                        }
+                }
+        }
+}
 
-        numbers.forEach { println(it) }
+fun updateProgressBar(value: Int, marker: String) {
+        print(marker)
 }
