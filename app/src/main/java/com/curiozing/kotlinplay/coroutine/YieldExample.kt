@@ -14,23 +14,6 @@ suspend fun downloadFile(url: String, delay: Long): String {
 }
 
 
-/*fun main(): Unit = runBlocking {
-
-        launch {
-                for (i in 1..5) {
-                        println("Computation $i in Coroutine 1")
-                }
-        }
-
-        launch {
-                for (i in 1..5) {
-                        println("Task $i in Coroutine 2")
-                }
-        }
-
-}*/
-
-
 @OptIn(ExperimentalCoroutinesApi::class)
 suspend fun main() {
     val singleThreadedDispatcher = Dispatchers.Default.limitedParallelism(1)
@@ -54,3 +37,21 @@ suspend fun main() {
 fun updateProgressBar(value: Int, marker: String) {
     print(marker)
 }
+
+
+/*fun main(): Unit = runBlocking {
+
+        launch {
+                for (i in 1..5) {
+                        println("Computation $i in Coroutine 1")
+                }
+        }
+
+        launch {
+                for (i in 1..5) {
+                        println("Task $i in Coroutine 2")
+                }
+        }
+
+}*/
+
