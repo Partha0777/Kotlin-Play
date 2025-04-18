@@ -13,7 +13,6 @@ suspend fun downloadFile(url: String, delay: Long): String {
     return "Downloaded $url"
 }
 
-
 @OptIn(ExperimentalCoroutinesApi::class)
 suspend fun main() {
     val singleThreadedDispatcher = Dispatchers.Default.limitedParallelism(1)
