@@ -19,7 +19,6 @@ suspend fun main() {
 
     //Added Coroutine example
     // GlobalScope.launch(context = Dispatchers.IO + SupervisorJob() + CoroutineName("") + CoroutineExceptionHandler(handler = {e,r ->})) {  }
-
     withContext(singleThreadedDispatcher) {
         launch {
             repeat(5) {
@@ -27,6 +26,7 @@ suspend fun main() {
                 yield()
             }
         }
+
         launch {
             repeat(5) {
                 updateProgressBar(it, "B")
