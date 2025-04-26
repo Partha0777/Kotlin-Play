@@ -17,7 +17,6 @@ fun main(): Unit = runBlocking {
             delay(500)
             println("Task 2 done")
         }
-
         joinAll(job1,job2)
         println("Parent job done after all child jobs")
     }
