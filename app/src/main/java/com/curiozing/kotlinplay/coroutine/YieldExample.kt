@@ -29,8 +29,7 @@ suspend fun main() {
         }
     }
 
-    data
-        .catch {
+    data.catch {
 
         }
         .onCompletion {
