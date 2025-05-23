@@ -31,18 +31,16 @@ suspend fun main() {
 
     data.catch {
 
-        }
-        .onCompletion {
+        }.onCompletion {
 
-        }
-        .onEach {
+        }.onEach {
             println("On Complete - $it")
         }
         .collect()
 
 
 
-    //Added Coroutine example
+    // Added Coroutine example
     // GlobalScope.launch(context = Dispatchers.IO + SupervisorJob() + CoroutineName("") + CoroutineExceptionHandler(handler = {e,r ->})) {  }
 
     withContext(singleThreadedDispatcher) {
