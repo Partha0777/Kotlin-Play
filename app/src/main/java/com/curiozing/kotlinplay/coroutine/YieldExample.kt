@@ -3,6 +3,9 @@ package com.curiozing.kotlinplay.coroutine;
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.yield
@@ -16,6 +19,15 @@ suspend fun downloadFile(url: String, delay: Long): String {
 @OptIn(ExperimentalCoroutinesApi::class)
 suspend fun main() {
     val singleThreadedDispatcher = Dispatchers.Default.limitedParallelism(1)
+
+    var data = flow{
+        repeat(5){
+            emit(it)
+        }
+    }
+
+    data.map {  }
+        .collect()
 
     //Added Coroutine example
     // GlobalScope.launch(context = Dispatchers.IO + SupervisorJob() + CoroutineName("") + CoroutineExceptionHandler(handler = {e,r ->})) {  }
