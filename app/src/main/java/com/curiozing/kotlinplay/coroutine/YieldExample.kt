@@ -23,7 +23,7 @@ suspend fun downloadFile(url: String, delay: Long): String {
 suspend fun main() {
     val singleThreadedDispatcher = Dispatchers.Default.limitedParallelism(1)
 
-    var data = flow{
+    val data = flow{
         repeat(5){
             emit(it)
         }
