@@ -3,9 +3,12 @@ package com.curiozing.kotlinplay.coroutine;
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onCompletion
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.yield
@@ -26,8 +29,19 @@ suspend fun main() {
         }
     }
 
-    data.map {  }
+    data
+        .catch {
+
+        }
+        .onCompletion {
+
+        }
+        .onEach {
+            println("On Complete - $it")
+        }
         .collect()
+
+
 
     //Added Coroutine example
     // GlobalScope.launch(context = Dispatchers.IO + SupervisorJob() + CoroutineName("") + CoroutineExceptionHandler(handler = {e,r ->})) {  }
