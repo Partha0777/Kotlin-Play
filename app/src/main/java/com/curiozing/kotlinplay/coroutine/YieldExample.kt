@@ -5,6 +5,9 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.debounce
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onCompletion
@@ -37,8 +40,6 @@ suspend fun main() {
             println("On Complete - $it")
         }
         .collect()
-
-
 
     // Added Coroutine example
     // GlobalScope.launch(context = Dispatchers.IO + SupervisorJob() + CoroutineName("") + CoroutineExceptionHandler(handler = {e,r ->})) {  }
