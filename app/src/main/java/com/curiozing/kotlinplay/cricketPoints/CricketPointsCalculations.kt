@@ -101,7 +101,6 @@ fun main() {
         Role.AllRounder
     )
 
-
     val player: Player = bumrahIpl
 
     val battingCriteria = listOf(
