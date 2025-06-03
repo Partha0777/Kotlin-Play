@@ -38,6 +38,7 @@ fun main() = runBlocking(Dispatchers.Default) {
             hotFlow.emit("Hot $it")
         }
     }
+
     stateFlow.value = 2
     delay(2000)
     stateFlow.value = 3
