@@ -118,6 +118,7 @@ fun main() {
     if (player.role == Role.Bowler) {
         battingPoints /= 2
     }
+
     if (player.isStarPlayer && player.role == Role.Batsman) {
         battingPoints += 10
     }
@@ -133,6 +134,7 @@ fun main() {
         normalize(36 - player.economyRate, 36.0),  // Economy Rate
         normalize(player.fiveWicketsHauls, 5.0)   // Five-Wicket Hauls
     )
+
 
     //val bowlingWeightage = listOf(0.35, 0.2, 0.35, 0.1)
     val bowlingWeightage = listOf(0.4, 0.4, 0.2)
