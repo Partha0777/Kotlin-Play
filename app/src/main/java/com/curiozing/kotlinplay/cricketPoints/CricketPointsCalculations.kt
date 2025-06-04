@@ -134,7 +134,6 @@ fun main() {
         normalize(player.fiveWicketsHauls, 5.0)   // Five-Wicket Hauls
     )
 
-
     //val bowlingWeightage = listOf(0.35, 0.2, 0.35, 0.1)
     val bowlingWeightage = listOf(0.4, 0.4, 0.2)
 
