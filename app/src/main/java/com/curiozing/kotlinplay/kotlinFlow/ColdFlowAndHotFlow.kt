@@ -21,6 +21,7 @@ fun main() = runBlocking(Dispatchers.Default) {
     }
 
     delay(2000)
+
     launch {
         coldFlow().collect {
             println("Cold Collector 2 - $it")
