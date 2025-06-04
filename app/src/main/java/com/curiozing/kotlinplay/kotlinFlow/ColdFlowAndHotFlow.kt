@@ -41,7 +41,9 @@ fun main() = runBlocking(Dispatchers.Default) {
     }
 
     stateFlow.value = 2
+
     delay(2000)
+
     stateFlow.value = 3
 
     job.launch {
