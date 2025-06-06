@@ -17,8 +17,7 @@ fun main():Unit = runBlocking {
         emit("ABC")
     }
 
-   userInput
-        .flatMapLatest {query ->
+   userInput.flatMapLatest {query ->
         flow {
             delay(300) // Simulated API call
             emit("Results for: $query")
