@@ -3,9 +3,6 @@ package com.curiozing.kotlinplay.kotlinFlow.intermediateOperator
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.transform
 import kotlinx.coroutines.runBlocking
 
 fun main():Unit = runBlocking {
