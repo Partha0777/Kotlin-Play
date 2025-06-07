@@ -5,6 +5,7 @@ import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.transform
 import kotlinx.coroutines.runBlocking
 
 fun main():Unit = runBlocking {
@@ -17,12 +18,15 @@ fun main():Unit = runBlocking {
         emit("ABC")
     }
 
-   userInput.flatMapLatest {query ->
+   userInput
+       .flatMapLatest {query ->
         flow {
-            delay(300) // Simulated API call
+            delay(200) // Simulated API call
             emit("Results for: $query")
         }
     }.collect{
         println("$it")
     }
+
+
 }
