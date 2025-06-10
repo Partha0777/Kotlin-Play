@@ -51,9 +51,7 @@ fun main() = runBlocking(Dispatchers.Default) {
                 println("Hot Collector 2 - $it")
             }
     }
-
     delay(5000)
-
     job.launch {
         hotFlow
             .collect {
