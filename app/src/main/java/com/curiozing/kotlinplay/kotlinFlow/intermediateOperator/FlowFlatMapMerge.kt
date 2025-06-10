@@ -15,6 +15,6 @@ fun main(): Unit = runBlocking {
             emit("$value B")
         }
     }.collect {
-        println("$it")
+        println(it)
     }
 }
