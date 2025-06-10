@@ -1,6 +1,5 @@
 package com.curiozing.kotlinplay.kotlinFlow.intermediateOperator
 
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flowOf
 
