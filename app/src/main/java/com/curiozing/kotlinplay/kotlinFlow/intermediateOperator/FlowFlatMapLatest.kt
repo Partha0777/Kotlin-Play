@@ -21,7 +21,7 @@ fun main():Unit = runBlocking {
             emit(it)
         }
     }.collect{
-        println("$it")
+        println(it)
     }
 
 
