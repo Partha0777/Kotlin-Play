@@ -1,25 +1,26 @@
 package com.curiozing.kotlinplay.kotlinFlow.intermediateOperator
 
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 
 fun main():Unit = runBlocking {
 
-    val userInput = flow {
-        emit("A")
-        delay(100) // User types quickly
-        emit("AB")
+    val input = flow{
+        emit("a")
         delay(100)
-        emit("ABC")
+        emit("b")
+        delay(100)
+        emit("c")
     }
 
-   userInput
-       .flatMapLatest {query ->
+    input.flatMapLatest {
         flow {
-            delay(200) // Simulated API call
-            emit("Results for: $query")
+            delay(200)
+            emit(it)
         }
     }.collect{
         println("$it")
