@@ -8,7 +8,6 @@ import kotlinx.coroutines.runBlocking
 
 @OptIn(ExperimentalCoroutinesApi::class)
 fun main():Unit = runBlocking {
-
     val input = flow{
         emit("a")
         delay(100)
