@@ -7,14 +7,14 @@ import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.runBlocking
 
 @OptIn(ExperimentalCoroutinesApi::class)
-suspend fun main() : Unit = runBlocking{
-    flowOf(1,2).flatMapConcat { value ->
+suspend fun main(): Unit = runBlocking {
+    flowOf(1, 2).flatMapConcat { value ->
         flow {
             emit("$value A")
             kotlinx.coroutines.delay(100)
             emit("$value B")
         }
-    }.collect{
+    }.collect {
         println(it)
     }
 }
