@@ -8,6 +8,7 @@ import kotlinx.coroutines.runBlocking
 
 @OptIn(ExperimentalCoroutinesApi::class)
 suspend fun main(): Unit = runBlocking {
+
     flowOf(1, 2).flatMapConcat { value ->
         flow {
             emit("$value A")
