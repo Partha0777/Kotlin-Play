@@ -18,4 +18,5 @@ suspend fun main(): Unit = runBlocking {
     }.collect {
         println(it)
     }
+
 }
