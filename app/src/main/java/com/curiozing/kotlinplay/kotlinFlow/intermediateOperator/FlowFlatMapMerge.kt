@@ -8,6 +8,7 @@ import kotlinx.coroutines.runBlocking
 
 @OptIn(ExperimentalCoroutinesApi::class)
 fun main(): Unit = runBlocking {
+
     flowOf(1, 2).flatMapMerge { value ->
         flow {
             emit("$value A")
@@ -17,4 +18,5 @@ fun main(): Unit = runBlocking {
     }.collect {
         println(it)
     }
+
 }
