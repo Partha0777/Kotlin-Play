@@ -1,4 +1,7 @@
 package com.curiozing.kotlinplay.kotlinFlow
 
-class StateFlowAndSharedFlow {
+import kotlinx.coroutines.runBlocking
+
+fun main() : Unit = runBlocking {
+
 }
