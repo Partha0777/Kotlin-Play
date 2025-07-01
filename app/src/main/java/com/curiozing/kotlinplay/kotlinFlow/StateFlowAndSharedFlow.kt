@@ -1,8 +1,6 @@
 package com.curiozing.kotlinplay.kotlinFlow
 
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.sync.Mutex
-import kotlinx.coroutines.sync.withLock
+
 
 fun main() {
 
