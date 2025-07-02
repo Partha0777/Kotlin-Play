@@ -3,7 +3,7 @@ package com.curiozing.kotlinplay.kotlinFlow
 
 fun main() {
 
-    val list = listOf(19, 8, 2, 45, 7, 3)
+    val list = mutableListOf(19, 8, 2, 45, 7, 3)
     val temp = mutableListOf<Int>()
 
     list.forEach {
