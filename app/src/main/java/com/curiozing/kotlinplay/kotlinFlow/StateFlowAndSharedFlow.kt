@@ -2,8 +2,6 @@ package com.curiozing.kotlinplay.kotlinFlow
 
 
 fun main() {
-
-
     print(heightNumber(0))
 }
 
