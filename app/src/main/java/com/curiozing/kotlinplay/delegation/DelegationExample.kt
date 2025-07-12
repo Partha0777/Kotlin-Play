@@ -4,7 +4,7 @@ fun main() {
 
     val headPhone = HeadPhone()
     val speaker = Speaker()
-    MusicPlayer(headPhone).play()
+    MusicPlayer(speaker).play()
 }
 
 interface Music {
