@@ -6,8 +6,8 @@ fun main() {
     val battery = SuperBattery()
     val speaker = Speaker()
 
-    MusicPlayer(speaker,battery).play()
-    MusicPlayer(speaker,battery).getCharLevel()
+    MusicPlayer(speaker, battery).play()
+    MusicPlayer(speaker, battery).getCharLevel()
 }
 
 interface Music {
@@ -19,12 +19,12 @@ interface Battery {
     fun getCharLevel()
 }
 
-class SuperBattery : Battery{
+class SuperBattery : Battery {
     override fun getCharLevel() {
     }
 }
 
-class LowPowerBattery : Battery{
+class LowPowerBattery : Battery {
     override fun getCharLevel() {
     }
 }
