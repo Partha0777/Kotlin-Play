@@ -3,14 +3,32 @@ package com.curiozing.kotlinplay.delegation
 fun main() {
 
     val headPhone = HeadPhone()
+    val battery = SuperBattery()
     val speaker = Speaker()
-    MusicPlayer(speaker).play()
+
+    MusicPlayer(speaker,battery).play()
+    MusicPlayer(speaker,battery).getCharLevel()
 }
 
 interface Music {
     fun play()
     fun pause()
 }
+
+interface Battery {
+    fun getCharLevel()
+}
+
+class SuperBattery : Battery{
+    override fun getCharLevel() {
+    }
+}
+
+class LowPowerBattery : Battery{
+    override fun getCharLevel() {
+    }
+}
+
 
 class HeadPhone : Music {
 
@@ -35,4 +53,4 @@ class Speaker : Music {
 
 }
 
-class MusicPlayer(music: Music) : Music by music
+class MusicPlayer(music: Music, battery: Battery) : Music by music, Battery by battery
