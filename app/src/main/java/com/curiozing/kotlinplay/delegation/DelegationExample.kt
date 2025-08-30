@@ -23,11 +23,11 @@ fun main() {
 }
 
 @Synchronized
-fun setData(){
+fun setData() {
 
 }
 
-data class Food(val name:String){
+data class Food(val name: String) {
 
 }
 
@@ -44,9 +44,11 @@ class SuperBattery : Battery {
 
     @Volatile
     var data = ""
-    companion object{
+
+    companion object {
 
     }
+
     override fun getCharLevel() {
     }
 }
@@ -85,12 +87,12 @@ class MusicPlayer(music: Music, battery: Battery) : Music by music, Battery by b
 
 
 open class DeltaA {
-     open val dataName = ""
-    open fun methodA(){
+    open val dataName = ""
+    open fun methodA() {
     }
 }
 
-class  DelataB : DeltaA(){
+class DelataB : DeltaA() {
 
     override var dataName = ""
 
