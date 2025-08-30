@@ -84,7 +84,6 @@ class Speaker : Music {
 class MusicPlayer(music: Music, battery: Battery) : Music by music, Battery by battery
 
 
-
 open class DeltaA {
      open val dataName = ""
     open fun methodA(){
