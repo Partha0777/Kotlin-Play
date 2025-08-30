@@ -1,7 +1,12 @@
 package com.curiozing.kotlinplay.delegation
 
+import java.util.concurrent.atomic.AtomicBoolean
+import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.atomic.AtomicReference
+
 fun main() {
 
+    var inte: AtomicReference<String>
     val headPhone = HeadPhone()
     val lowBattery = LowPowerBattery()
 
@@ -10,6 +15,20 @@ fun main() {
 
     MusicPlayer(speaker, battery).play()
     MusicPlayer(speaker, battery).getCharLevel()
+
+    val dosa = Food("dosa")
+    val idly = Food("dosa")
+
+    print("Object same? ${dosa == idly}")
+}
+
+@Synchronized
+fun setData(){
+
+}
+
+data class Food(val name:String){
+
 }
 
 interface Music {
@@ -22,6 +41,12 @@ interface Battery {
 }
 
 class SuperBattery : Battery {
+
+    @Volatile
+    var data = ""
+    companion object{
+
+    }
     override fun getCharLevel() {
     }
 }
@@ -55,4 +80,23 @@ class Speaker : Music {
 
 }
 
+
 class MusicPlayer(music: Music, battery: Battery) : Music by music, Battery by battery
+
+
+
+open class DeltaA {
+     open val dataName = ""
+    open fun methodA(){
+
+    }
+}
+
+class  DelataB : DeltaA(){
+
+    override var dataName = ""
+
+    override fun methodA() {
+        super.methodA()
+    }
+}
