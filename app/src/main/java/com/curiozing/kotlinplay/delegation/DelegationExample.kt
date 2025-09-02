@@ -24,9 +24,7 @@ fun setData() {
 
 }
 
-data class Food(val name: String) {
-
-}
+data class Food(val name: String) {}
 
 interface Music {
     fun play()
