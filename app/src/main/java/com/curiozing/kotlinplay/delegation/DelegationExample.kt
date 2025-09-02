@@ -89,7 +89,7 @@ open class DeltaA {
     }
 }
 
-class DelataB : DeltaA() {
+class DeltaB : DeltaA() {
 
     override var dataName = ""
 
