@@ -41,7 +41,6 @@ class SuperBattery : Battery {
     var data = ""
 
     companion object {
-
     }
 
     override fun getCharLevel() {
