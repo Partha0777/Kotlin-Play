@@ -40,8 +40,7 @@ class SuperBattery : Battery {
     @Volatile
     var data = ""
 
-    companion object {
-    }
+    companion object {}
 
     override fun getCharLevel() {
     }
