@@ -42,13 +42,11 @@ class SuperBattery : Battery {
 
     companion object {}
 
-    override fun getCharLevel() {
-    }
+    override fun getCharLevel() {}
 }
 
 class LowPowerBattery : Battery {
-    override fun getCharLevel() {
-    }
+    override fun getCharLevel() {}
 }
 
 
