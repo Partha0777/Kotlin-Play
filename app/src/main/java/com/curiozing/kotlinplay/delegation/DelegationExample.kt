@@ -55,8 +55,7 @@ class HeadPhone : Music {
     override fun play() {
     }
 
-    override fun pause() {
-    }
+    override fun pause() {}
 
     fun pauseByButton() {
 
