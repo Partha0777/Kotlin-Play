@@ -46,7 +46,9 @@ class SuperBattery : Battery {
 }
 
 class LowPowerBattery : Battery {
+
     override fun getCharLevel() {}
+
 }
 
 
