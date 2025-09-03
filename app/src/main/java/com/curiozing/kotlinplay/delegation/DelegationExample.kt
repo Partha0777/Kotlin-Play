@@ -52,8 +52,7 @@ class LowPowerBattery : Battery {
 
 class HeadPhone : Music {
 
-    override fun play() {
-    }
+    override fun play() {}
 
     override fun pause() {}
 
