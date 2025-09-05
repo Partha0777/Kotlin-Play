@@ -11,7 +11,6 @@ class TestKotlin() {
 }
 
 @JvmOverloads
-fun testMethod(data: String = "Example data") {
-}
+fun testMethod(data: String = "Example data") {}
 
 data class Student(@JvmField var name: String, var age: Int)
