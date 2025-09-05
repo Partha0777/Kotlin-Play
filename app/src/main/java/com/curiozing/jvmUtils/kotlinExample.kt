@@ -1,9 +1,9 @@
 package com.curiozing.jvmUtils
 
 
-class TestKotlin(){
+class TestKotlin() {
 
-    companion object{
+    companion object {
 
         @JvmStatic
         val dataExample = "Test";
@@ -12,8 +12,8 @@ class TestKotlin(){
 }
 
 @JvmOverloads
-fun testMethod(data: String = "Example data"){
+fun testMethod(data: String = "Example data") {
 
 }
 
-data class Student(@JvmField var name: String, var age:Int)
+data class Student(@JvmField var name: String, var age: Int)
