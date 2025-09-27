@@ -20,9 +20,7 @@ fun main() {
 }
 
 @Synchronized
-fun setData() {
-
-}
+fun setData() {}
 
 data class Food(val name: String) {}
 
