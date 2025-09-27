@@ -63,8 +63,7 @@ class HeadPhone : Music {
 class Speaker : Music {
     override fun play() {}
 
-    override fun pause() {
-    }
+    override fun pause() {}
 
 }
 
