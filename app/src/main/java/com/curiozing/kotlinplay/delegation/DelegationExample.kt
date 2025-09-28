@@ -18,6 +18,7 @@ fun main() {
     val idly = Food("dosa")
 
     print("Object same? ${dosa == idly}")
+
 }
 
 @Synchronized
