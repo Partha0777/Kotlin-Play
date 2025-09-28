@@ -1,4 +1,5 @@
 package com.curiozing.kotlinplay.delegation
+
 import java.util.concurrent.atomic.AtomicReference
 
 fun main() {
