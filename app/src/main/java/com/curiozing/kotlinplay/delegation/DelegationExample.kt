@@ -12,6 +12,7 @@ fun main() {
     val speaker = Speaker()
 
     MusicPlayer(speaker, battery).play()
+
     MusicPlayer(speaker, battery).getCharLevel()
 
     val dosa = Food("dosa")
