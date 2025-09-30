@@ -55,6 +55,7 @@ class SuperBattery : Battery {
 class LowPowerBattery : Battery {
 
     lateinit var data: String
+
     override fun getCharLevel() {}
 }
 
