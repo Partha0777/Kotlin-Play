@@ -2,7 +2,6 @@ package com.curiozing.jvmUtils
 
 
 class TestKotlin() {
-
     companion object {
         @JvmStatic
         val dataExample = "Test";
