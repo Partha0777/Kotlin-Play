@@ -15,11 +15,9 @@ class PlayMusic(private val keysInstrument: KeysInstrument, private val stringIn
     KeysInstrument by keysInstrument, StringInstrument by stringInstrument
 
 class InPlayMusic() : Piano() {
-
     override fun playKeys() {
         super.playKeys()
     }
-
 }
 
 interface KeysInstrument {
