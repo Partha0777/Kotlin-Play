@@ -5,6 +5,7 @@ import java.util.concurrent.atomic.AtomicReference
 fun main() {
 
     var inte: AtomicReference<String>
+
     val headPhone = HeadPhone()
     val lowBattery = LowPowerBattery()
 
